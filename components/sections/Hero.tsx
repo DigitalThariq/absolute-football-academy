@@ -38,13 +38,54 @@ export default function Hero() {
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-grid opacity-30 z-0 pointer-events-none" />
 
-      {/* Floating 3D Neon Football */}
+      {/* Floating 3D Neon Football + CTA */}
       <motion.div 
-        className="absolute right-[5%] top-[25%] lg:right-[10%] lg:top-[20%] w-64 h-64 md:w-96 md:h-96 z-0 pointer-events-none opacity-80"
-        animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute right-[5%] top-[15%] lg:right-[8%] lg:top-[12%] w-72 h-72 md:w-[450px] md:h-[450px] z-20 pointer-events-none select-none"
+        initial={{ opacity: 0, scale: 0.9, x: 20 }}
+        animate={{ 
+          opacity: 1, 
+          scale: 1, 
+          x: 0,
+          y: [0, -15, 0],
+          rotate: [0, 3, 0] 
+        }}
+        transition={{ 
+          opacity: { duration: 1.2 },
+          scale: { duration: 1.2 },
+          x: { duration: 1.2 },
+          y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+          rotate: { duration: 8, repeat: Infinity, ease: "easeInOut" }
+        }}
       >
-        <Image src="/absolute_neon_football.png" alt="Absolute Football Academy" fill className="object-contain drop-shadow-[0_0_30px_rgba(56,189,248,0.6)]" />
+        <div className="relative w-full h-full">
+          {/* Main Football Image */}
+          <div className="relative w-full h-full transition-transform duration-700 hover:scale-105 pointer-events-auto cursor-pointer">
+            <Image 
+              src="/absolute_neon_football.png" 
+              alt="Absolute Football Academy" 
+              fill 
+              className="object-contain drop-shadow-[0_0_40px_rgba(56,189,248,0.35)] blur-[0.5px]" 
+            />
+          </div>
+
+          {/* Integrated Floating CTA */}
+          <motion.div
+            className="absolute -bottom-2 right-4 md:bottom-20 md:right-16 z-30 pointer-events-auto"
+            animate={{ y: [0, 5, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <Button 
+              variant="primary" 
+              size="sm"
+              className="rounded-full px-5 py-2.5 sm:px-7 sm:py-3.5 bg-[#38bdf8] hover:bg-[#38bdf8]/90 text-white font-display font-black uppercase tracking-widest text-[10px] sm:text-xs shadow-[0_0_25px_rgba(56,189,248,0.4)] hover:shadow-[0_0_40px_rgba(56,189,248,0.7)] border-none transition-all duration-300"
+            >
+              Book Free Trial
+            </Button>
+            
+            {/* Pulse effect background */}
+            <div className="absolute inset-0 bg-[#38bdf8]/20 rounded-full blur-xl animate-pulse -z-10" />
+          </motion.div>
+        </div>
       </motion.div>
 
       <Container className="relative z-10">
