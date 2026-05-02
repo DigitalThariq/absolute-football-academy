@@ -59,61 +59,53 @@ export default function Navbar() {
               </div>
             </motion.a>
 
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-1">
-              {NAV_LINKS.map((link, i) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  initial={{ opacity: 0, y: -8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + i * 0.06, duration: 0.4 }}
-                  className="relative px-4 py-2 text-foreground-3 hover:text-foreground font-body text-sm font-medium transition-colors group"
+            {/* Desktop Nav - Hidden as per new clean layout request */}
+            {/* <nav className="hidden md:flex items-center gap-1"> ... </nav> */}
+
+            <div className="flex items-center gap-4">
+              {/* CTA - visible on Desktop */}
+              <div className="hidden md:block">
+                <Button 
+                  variant="primary" 
+                  size="sm" 
+                  className="bg-[#38bdf8] hover:bg-[#38bdf8]/90 text-white font-display font-black uppercase tracking-widest text-[10px] shadow-[0_0_15px_rgba(56,189,248,0.3)] border-none"
                 >
-                  {link.label}
-                  <span className="absolute inset-x-4 bottom-0 h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center rounded-full" />
-                </motion.a>
-              ))}
-            </nav>
+                  Book Free Trial
+                </Button>
+              </div>
 
-            {/* CTA */}
-            <div className="hidden md:block">
-              <Button variant="primary" size="sm">
-                Book Free Trial
-              </Button>
+              {/* Mobile toggle / Menu */}
+              <motion.button
+                whileTap={{ scale: 0.9 }}
+                onClick={() => setMobileOpen((v) => !v)}
+                className="w-10 h-10 rounded-xl bg-surface-2 border border-border flex items-center justify-center text-foreground-2 hover:border-[#38bdf8]/30 transition-colors"
+                aria-label="Toggle menu"
+              >
+                <AnimatePresence mode="wait">
+                  {mobileOpen ? (
+                    <motion.span
+                      key="close"
+                      initial={{ rotate: -90 }}
+                      animate={{ rotate: 0 }}
+                      exit={{ rotate: 90 }}
+                      transition={{ duration: 0.15 }}
+                    >
+                      <X className="w-4 h-4" />
+                    </motion.span>
+                  ) : (
+                    <motion.span
+                      key="menu"
+                      initial={{ rotate: 90 }}
+                      animate={{ rotate: 0 }}
+                      exit={{ rotate: -90 }}
+                      transition={{ duration: 0.15 }}
+                    >
+                      <Menu className="w-4 h-4" />
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </motion.button>
             </div>
-
-            {/* Mobile toggle */}
-            <motion.button
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setMobileOpen((v) => !v)}
-              className="md:hidden w-10 h-10 rounded-xl bg-surface-2 border border-border flex items-center justify-center text-foreground-2"
-              aria-label="Toggle menu"
-            >
-              <AnimatePresence mode="wait">
-                {mobileOpen ? (
-                  <motion.span
-                    key="close"
-                    initial={{ rotate: -90 }}
-                    animate={{ rotate: 0 }}
-                    exit={{ rotate: 90 }}
-                    transition={{ duration: 0.15 }}
-                  >
-                    <X className="w-4 h-4" />
-                  </motion.span>
-                ) : (
-                  <motion.span
-                    key="menu"
-                    initial={{ rotate: 90 }}
-                    animate={{ rotate: 0 }}
-                    exit={{ rotate: -90 }}
-                    transition={{ duration: 0.15 }}
-                  >
-                    <Menu className="w-4 h-4" />
-                  </motion.span>
-                )}
-              </AnimatePresence>
-            </motion.button>
           </div>
         </Container>
       </motion.header>
