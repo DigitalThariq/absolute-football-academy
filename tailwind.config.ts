@@ -80,11 +80,16 @@ const config: Config = {
           "0%, 100%": { boxShadow: "0 0 12px rgba(56,189,248,0.25)" },
           "50%": { boxShadow: "0 0 32px rgba(56,189,248,0.55)" },
         },
+        pulse_slow: {
+          "0%, 100%": { opacity: "0.6" },
+          "50%": { opacity: "1" },
+        },
       },
       animation: {
         shimmer: "shimmer 2.5s linear infinite",
         float: "float 4s ease-in-out infinite",
         "pulse-glow": "pulse_glow 2.5s ease-in-out infinite",
+        "pulse-slow": "pulse_slow 6s ease-in-out infinite",
       },
     },
   },
