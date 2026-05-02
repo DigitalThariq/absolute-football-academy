@@ -44,7 +44,7 @@ export default function Hero() {
         animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       >
-        <Image src="/neon_football.png" alt="Neon Football" fill className="object-contain drop-shadow-[0_0_30px_rgba(56,189,248,0.6)]" />
+        <Image src="/absolute_neon_football.png" alt="Absolute Football Academy" fill className="object-contain drop-shadow-[0_0_30px_rgba(56,189,248,0.6)]" />
       </motion.div>
 
       <Container className="relative z-10">
