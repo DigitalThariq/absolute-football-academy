@@ -33,7 +33,7 @@ export default function Navbar() {
         className={[
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           scrolled
-            ? "bg-background/95 backdrop-blur-xl border-b border-border shadow-[0_1px_0_rgba(56,189,248,0.08)]"
+            ? "bg-[#020617]/80 backdrop-blur-lg border-b border-[#38bdf8]/20 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
             : "bg-transparent",
         ].join(" ")}
       >
@@ -42,15 +42,23 @@ export default function Navbar() {
             {/* Logo */}
             <motion.a
               href="/"
-              className="flex items-center gap-3 group"
+              className="flex items-center gap-3 sm:gap-4 group"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="w-14 h-14 flex items-center justify-center group-hover:neon-glow-md transition-all rounded-full bg-black/20 overflow-hidden border-2 border-accent/30 shadow-glow-sm">
-                <Image src="/logo.png" alt="Absolute Football Academy" width={56} height={56} className="object-contain" />
+              <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-full bg-black/40 overflow-hidden border border-[#38bdf8]/30 shadow-[0_0_15px_rgba(56,189,248,0.2)] group-hover:shadow-[0_0_25px_rgba(56,189,248,0.6)] group-hover:scale-105 transition-all duration-300">
+                <Image src="/logo.png" alt="Absolute FA Logo" fill className="object-contain p-1" />
               </div>
-              <span className="font-display font-black text-lg text-foreground tracking-tight uppercase italic hidden sm:inline-block">
-                Absolute <span className="text-accent">Football Academy</span>
-              </span>
+              <div className="flex items-baseline gap-1.5 sm:gap-2 font-display uppercase tracking-wider">
+                <span className="text-[#f1f5f9] font-black text-xl sm:text-2xl drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]">
+                  ABSOLUTE
+                </span>
+                <span className="text-[#94a3b8] font-bold text-xs sm:text-sm tracking-[0.15em] hidden sm:inline-block">
+                  FOOTBALL ACADEMY
+                </span>
+                <span className="text-[#94a3b8] font-bold text-[10px] tracking-[0.1em] sm:hidden">
+                  FA
+                </span>
+              </div>
             </motion.a>
 
             {/* Desktop Nav */}
