@@ -7,7 +7,7 @@ import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 
-const WHATSAPP_NUMBER = "6591234567";
+const WHATSAPP_NUMBER = "6589160656";
 const WHATSAPP_MESSAGE = "Hi! I want to book a free trial at Absolute Football Academy.";
 
 const ageGroups = ["Ages 8–10", "Ages 11–12", "Ages 13–14"];
@@ -38,54 +38,47 @@ export default function Hero() {
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-grid opacity-30 z-0 pointer-events-none" />
 
-      {/* Floating 3D Neon Football + CTA */}
+      {/* Floating 3D Neon Football + CTA Area */}
       <motion.div 
-        className="absolute right-[5%] top-[15%] lg:right-[8%] lg:top-[12%] w-72 h-72 md:w-[450px] md:h-[450px] z-20 pointer-events-none select-none"
-        initial={{ opacity: 0, scale: 0.9, x: 20 }}
+        className="absolute right-[5%] top-[12%] lg:right-[8%] lg:top-[10%] w-72 md:w-[450px] z-20 flex flex-col items-center gap-4 sm:gap-8 pointer-events-none"
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ 
           opacity: 1, 
           scale: 1, 
-          x: 0,
           y: [0, -15, 0],
-          rotate: [0, 3, 0] 
+          rotate: [0, 2, 0] 
         }}
         transition={{ 
           opacity: { duration: 1.2 },
           scale: { duration: 1.2 },
-          x: { duration: 1.2 },
           y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
           rotate: { duration: 8, repeat: Infinity, ease: "easeInOut" }
         }}
       >
-        <div className="relative w-full h-full">
-          {/* Main Football Image */}
-          <div className="relative w-full h-full transition-transform duration-700 hover:scale-105 pointer-events-auto cursor-pointer">
-            <Image 
-              src="/absolute_neon_football.png" 
-              alt="Absolute Football Academy" 
-              fill 
-              className="object-contain drop-shadow-[0_0_40px_rgba(56,189,248,0.35)] blur-[0.5px]" 
-            />
-          </div>
-
-          {/* Integrated Floating CTA */}
-          <motion.div
-            className="absolute -bottom-2 right-4 md:bottom-20 md:right-16 z-30 pointer-events-auto"
-            animate={{ y: [0, 5, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <Button 
-              variant="primary" 
-              size="sm"
-              className="rounded-full px-5 py-2.5 sm:px-7 sm:py-3.5 bg-[#38bdf8] hover:bg-[#38bdf8]/90 text-white font-display font-black uppercase tracking-widest text-[10px] sm:text-xs shadow-[0_0_25px_rgba(56,189,248,0.4)] hover:shadow-[0_0_40px_rgba(56,189,248,0.7)] border-none transition-all duration-300"
-            >
-              Book Free Trial
-            </Button>
-            
-            {/* Pulse effect background */}
-            <div className="absolute inset-0 bg-[#38bdf8]/20 rounded-full blur-xl animate-pulse -z-10" />
-          </motion.div>
+        {/* Main Football Image */}
+        <div className="relative w-full aspect-square transition-transform duration-700 hover:scale-105 pointer-events-auto cursor-pointer">
+          <Image 
+            src="/absolute_neon_football.png" 
+            alt="Absolute Football Academy" 
+            fill 
+            className="object-contain drop-shadow-[0_0_40px_rgba(56,189,248,0.35)] blur-[0.3px]" 
+          />
         </div>
+
+        {/* CTA Button centered below image */}
+        <motion.div
+          className="pointer-events-auto"
+          animate={{ scale: [1, 1.03, 1] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Button 
+            variant="primary" 
+            size="sm"
+            className="rounded-full px-6 py-3 sm:px-10 sm:py-4 bg-[#38bdf8] hover:bg-[#38bdf8]/90 text-white font-display font-black uppercase tracking-widest text-[10px] sm:text-xs shadow-[0_0_30px_rgba(56,189,248,0.4)] hover:shadow-[0_0_50px_rgba(56,189,248,0.7)] border-none transition-all duration-300"
+          >
+            Book Free Trial
+          </Button>
+        </motion.div>
       </motion.div>
 
       <Container className="relative z-10">
