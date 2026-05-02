@@ -45,18 +45,16 @@ export default function Navbar() {
               className="flex items-center gap-3 sm:gap-4 group"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-full bg-black/40 overflow-hidden border border-[#38bdf8]/30 shadow-[0_0_15px_rgba(56,189,248,0.2)] group-hover:shadow-[0_0_25px_rgba(56,189,248,0.6)] group-hover:scale-105 transition-all duration-300">
-                <Image src="/logo.png" alt="Absolute FA Logo" fill className="object-contain p-1" />
+              <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-full bg-black/40 overflow-hidden border border-[#38bdf8]/30 shadow-[0_0_15px_rgba(56,189,248,0.3)] group-hover:shadow-[0_0_25px_rgba(56,189,248,0.8)] group-hover:scale-105 transition-all duration-300">
+                <div className="absolute inset-0 bg-[#38bdf8]/10 group-hover:bg-[#38bdf8]/20 transition-colors rounded-full" />
+                <Image src="/logo.png" alt="Absolute Football Academy Logo" fill className="object-contain p-1 z-10" />
               </div>
-              <div className="flex items-baseline gap-1.5 sm:gap-2 font-display uppercase tracking-wider">
-                <span className="text-[#f1f5f9] font-black text-xl sm:text-2xl drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]">
+              <div className="flex flex-col justify-center sm:flex-row sm:items-baseline sm:gap-2 font-display uppercase tracking-wider leading-none">
+                <span className="text-[#38bdf8] font-black text-lg sm:text-2xl drop-shadow-[0_0_8px_rgba(56,189,248,0.6)]">
                   ABSOLUTE
                 </span>
-                <span className="text-[#94a3b8] font-bold text-xs sm:text-sm tracking-[0.15em] hidden sm:inline-block">
+                <span className="text-[#94a3b8] font-bold text-[9px] sm:text-sm tracking-[0.15em] mt-1 sm:mt-0">
                   FOOTBALL ACADEMY
-                </span>
-                <span className="text-[#94a3b8] font-bold text-[10px] tracking-[0.1em] sm:hidden">
-                  FA
                 </span>
               </div>
             </motion.a>

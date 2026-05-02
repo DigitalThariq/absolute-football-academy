@@ -79,7 +79,7 @@ export default function Testimonials() {
           </h2>
           <p className="text-foreground-3 text-base mt-4 leading-relaxed">
             Don&apos;t take our word for it — hear from the parents and players
-            who&apos;ve experienced the Absolute FA difference.
+            who&apos;ve experienced the Absolute Football Academy difference.
           </p>
         </motion.div>
 

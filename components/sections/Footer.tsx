@@ -68,13 +68,19 @@ export default function Footer() {
               className="lg:col-span-4"
             >
               {/* Logo */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-14 h-14 flex items-center justify-center rounded-full bg-black/20 overflow-hidden border-2 border-accent/30">
-                  <Image src="/logo.png" alt="Absolute Football Academy" width={56} height={56} className="object-contain" />
+              <div className="flex items-center gap-3 mb-6 group">
+                <div className="relative w-14 h-14 flex items-center justify-center rounded-full bg-black/40 overflow-hidden border border-[#38bdf8]/30 shadow-[0_0_15px_rgba(56,189,248,0.3)] group-hover:shadow-[0_0_25px_rgba(56,189,248,0.8)] group-hover:scale-105 transition-all duration-300">
+                  <div className="absolute inset-0 bg-[#38bdf8]/10 group-hover:bg-[#38bdf8]/20 transition-colors rounded-full" />
+                  <Image src="/logo.png" alt="Absolute Football Academy Logo" fill className="object-contain p-1 z-10" />
                 </div>
-                <span className="font-display font-black text-lg text-foreground uppercase italic tracking-tight">
-                  Absolute <span className="text-accent">Football Academy</span>
-                </span>
+                <div className="flex flex-col justify-center gap-0.5 font-display uppercase tracking-wider leading-none">
+                  <span className="text-[#38bdf8] font-black text-xl drop-shadow-[0_0_8px_rgba(56,189,248,0.6)]">
+                    ABSOLUTE
+                  </span>
+                  <span className="text-[#94a3b8] font-bold text-[11px] tracking-[0.15em]">
+                    FOOTBALL ACADEMY
+                  </span>
+                </div>
               </div>
 
               <p className="text-foreground-3 text-sm leading-relaxed mb-8 max-w-xs font-body">
