@@ -8,48 +8,48 @@ import Button from "@/components/ui/Button";
 
 const tiers = [
   {
-    age: "Ages 8–10",
-    name: "Foundation",
-    tagline: "Falling in love with the game",
+    age: "Pillar 1",
+    name: "Technical Excellence",
+    tagline: "Heavy focus on first-touch efficiency, 1v1 attacking/defending, and precision passing under pressure.",
     progress: 33,
     skills: [
-      { category: "Skill", text: "Ball mastery & coordination fundamentals" },
-      { category: "Physical", text: "Fundamental movement patterns & body control" },
-      { category: "Mental", text: "Joy of movement, team spirit & creative play" },
+      { category: "Focus", text: "First-touch efficiency" },
+      { category: "Combat", text: "1v1 attacking & defending" },
+      { category: "Pressure", text: "Precision passing under pressure" },
     ],
-    badge: "Entry Level",
+    badge: "Technical",
     featured: false,
     accent: "from-sky-400/20 via-transparent",
     borderAccent: "hover:border-sky-400/40",
     progressColor: "from-sky-400 to-sky-600",
   },
   {
-    age: "Ages 11–12",
-    name: "Development",
-    tagline: "Sharpening the competitive edge",
+    age: "Pillar 2",
+    name: "Tactical Intelligence",
+    tagline: "Introduction to positional play, transition phases, and understanding game tempo.",
     progress: 66,
     skills: [
-      { category: "Skill", text: "Tactical awareness & positional intelligence" },
-      { category: "Physical", text: "Agility circuits & functional speed work" },
-      { category: "Mental", text: "Deep concentration & rapid decision making" },
+      { category: "Position", text: "Positional play & spatial awareness" },
+      { category: "Transition", text: "Attacking to defending transitions" },
+      { category: "Tempo", text: "Understanding & controlling game tempo" },
     ],
-    badge: "Intermediate",
+    badge: "Tactical",
     featured: false,
     accent: "from-violet-400/20 via-transparent",
     borderAccent: "hover:border-violet-400/40",
     progressColor: "from-violet-400 to-violet-600",
   },
   {
-    age: "Ages 13–14",
-    name: "Elite",
-    tagline: "Pathway to professional football",
+    age: "Pillar 3",
+    name: "Mental & Physical",
+    tagline: "Age-appropriate explosive speed and agility (SAQ) combined with visualization techniques.",
     progress: 100,
     skills: [
-      { category: "Skill", text: "Game intelligence & specialty position training" },
-      { category: "Physical", text: "Power, endurance & active recovery protocols" },
-      { category: "Mental", text: "High-pressure performance & composure" },
+      { category: "Physical", text: "Explosive speed & agility (SAQ)" },
+      { category: "Mental", text: "Visualization & pressure management" },
+      { category: "Match-Day", text: "Managing competitive pressure" },
     ],
-    badge: "Elite Level",
+    badge: "Resilience",
     featured: true,
     accent: "from-accent/20 via-transparent",
     borderAccent: "border-accent/35 shadow-glow-sm",
@@ -104,7 +104,7 @@ export default function Pathway() {
               Structured Progression
             </span>
             <h2 className="font-display text-display-md text-foreground leading-tight">
-              The U14 <span className="text-foreground-3">Pathway</span>
+              Development <span className="text-foreground-3">Pathway</span>
             </h2>
             <div className="mt-4 h-0.5 w-20 bg-gradient-to-r from-accent to-transparent rounded-full" />
           </motion.div>
@@ -115,8 +115,7 @@ export default function Pathway() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-foreground-3 text-sm max-w-xs leading-relaxed sm:text-right"
           >
-            Every player progresses through a structured pathway designed for
-            their developmental stage.
+            The 3 pillars of our methodology designed for complete player development.
           </motion.p>
         </div>
 
@@ -203,21 +202,6 @@ export default function Pathway() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.7, duration: 0.6 }}
-          className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 text-center"
-        >
-          <p className="text-foreground-3 text-sm">
-            Not sure which level suits your child?
-          </p>
-          <Button variant="outline" size="sm">
-            Take the Assessment <ArrowRight className="w-3.5 h-3.5" />
-          </Button>
         </motion.div>
       </Container>
     </section>

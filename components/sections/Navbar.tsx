@@ -7,16 +7,10 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 
-const NAV_LINKS = [
-  { label: "Programs", href: "#programs" },
-  { label: "Pathway", href: "#pathway" },
-  { label: "Coaches", href: "#" },
-  { label: "Registration", href: "#" },
-];
+
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -63,8 +57,8 @@ export default function Navbar() {
             {/* <nav className="hidden md:flex items-center gap-1"> ... </nav> */}
 
             <div className="flex items-center gap-4">
-              {/* CTA - visible on Desktop */}
-              <div className="hidden md:block">
+              {/* CTA */}
+              <div>
                 <Button 
                   variant="primary" 
                   size="sm" 
@@ -73,78 +67,12 @@ export default function Navbar() {
                   Book Free Trial
                 </Button>
               </div>
-
-              {/* Mobile toggle / Menu */}
-              <motion.button
-                whileTap={{ scale: 0.9 }}
-                onClick={() => setMobileOpen((v) => !v)}
-                className="w-10 h-10 rounded-xl bg-surface-2 border border-border flex items-center justify-center text-foreground-2 hover:border-[#38bdf8]/30 transition-colors"
-                aria-label="Toggle menu"
-              >
-                <AnimatePresence mode="wait">
-                  {mobileOpen ? (
-                    <motion.span
-                      key="close"
-                      initial={{ rotate: -90 }}
-                      animate={{ rotate: 0 }}
-                      exit={{ rotate: 90 }}
-                      transition={{ duration: 0.15 }}
-                    >
-                      <X className="w-4 h-4" />
-                    </motion.span>
-                  ) : (
-                    <motion.span
-                      key="menu"
-                      initial={{ rotate: 90 }}
-                      animate={{ rotate: 0 }}
-                      exit={{ rotate: -90 }}
-                      transition={{ duration: 0.15 }}
-                    >
-                      <Menu className="w-4 h-4" />
-                    </motion.span>
-                  )}
-                </AnimatePresence>
-              </motion.button>
             </div>
           </div>
         </Container>
       </motion.header>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed top-16 left-0 right-0 z-40 bg-background/98 backdrop-blur-xl border-b border-border overflow-hidden"
-          >
-            <Container>
-              <nav className="py-6 flex flex-col gap-1">
-                {NAV_LINKS.map((link, i) => (
-                  <motion.a
-                    key={link.label}
-                    href={link.href}
-                    initial={{ opacity: 0, x: -16 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.07 }}
-                    onClick={() => setMobileOpen(false)}
-                    className="px-4 py-3.5 text-foreground-2 hover:text-foreground font-body text-base font-medium rounded-xl hover:bg-surface-2 transition-colors"
-                  >
-                    {link.label}
-                  </motion.a>
-                ))}
-                <div className="mt-4 pt-4 border-t border-border">
-                  <Button variant="primary" size="md" fullWidth>
-                    Book Free Trial
-                  </Button>
-                </div>
-              </nav>
-            </Container>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
     </>
   );
 }

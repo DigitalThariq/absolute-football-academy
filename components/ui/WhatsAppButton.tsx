@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 
-const WHATSAPP_NUMBER = "6591234567"; // Replace with real number
+const WHATSAPP_NUMBER = "6589160656";
 const WHATSAPP_MESSAGE = "Hi! I'm interested in booking a free trial session at Absolute Football Academy.";
 
 export default function WhatsAppButton() {

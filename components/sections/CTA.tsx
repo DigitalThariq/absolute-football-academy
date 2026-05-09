@@ -7,7 +7,7 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 
-const WHATSAPP_NUMBER = "6591234567";
+const WHATSAPP_NUMBER = "6589160656";
 const WHATSAPP_MESSAGE = "Hi! I'd like to book a free trial session at Absolute Football Academy.";
 
 export default function CTA() {
@@ -20,7 +20,7 @@ export default function CTA() {
   };
 
   return (
-    <section className="py-section relative overflow-hidden bg-surface">
+    <section id="registration" className="py-section relative overflow-hidden bg-surface">
       <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
 
       <Container ref={ref}>

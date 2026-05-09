@@ -38,13 +38,13 @@ const footerLinks = [
 ];
 
 const social = [
-  { Icon: Instagram, label: "Instagram", href: "#" },
-  { Icon: Facebook, label: "Facebook", href: "#" },
+  { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/absolute_football_academy/" },
+  { Icon: Facebook, label: "Facebook", href: "https://www.facebook.com/absolutefootballacademyafa" },
 ];
 
 const contact = [
   { Icon: MapPin, text: "Bishan Sports Hall, Singapore 579837" },
-  { Icon: Phone, text: "+65 9123 4567" },
+  { Icon: Phone, text: "+65 8916 0656" },
   { Icon: Mail, text: "hello@absolutefa.sg" },
 ];
 
@@ -83,9 +83,11 @@ export default function Footer() {
                 </div>
               </div>
 
+              <p className="text-foreground-3 text-sm leading-relaxed mb-4 max-w-xs font-body">
+                ⚽️ Defining the future of SG Football. | 🏆 Elite U-14 Development. | 🇸🇬 Professional Standards. Global Ambitions.
+              </p>
               <p className="text-foreground-3 text-sm leading-relaxed mb-8 max-w-xs font-body">
-                Developing Singapore&apos;s next generation of football talent through
-                modern methodology and character-first coaching.
+                Absolute Football Academy is Singapore’s premier youth program, blending world-class technical training with comprehensive character education.
               </p>
 
               {/* Contact info */}

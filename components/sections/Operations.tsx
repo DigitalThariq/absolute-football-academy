@@ -9,31 +9,28 @@ import Card from "@/components/ui/Card";
 
 const features = [
   {
-    icon: Shield,
-    label: "Mission",
-    description:
-      "To provide a high-performance environment where young athletes achieve absolute mastery of footballing fundamentals and personal character.",
-    detail: "Building Character",
+    icon: Trophy,
+    label: "Elite Training Camps",
+    description: "3-day residential camps simulating a professional pre-season environment.",
+    detail: "Professional Simulation",
     color: "from-blue-500/10 to-transparent",
     iconColor: "text-blue-400",
     iconBg: "bg-blue-400/10 border-blue-400/20",
   },
   {
-    icon: Trophy,
-    label: "Philosophy",
-    description:
-      "The Absolute Standard – A commitment to technical perfection, high-intensity play, and the development of the \"Total Player\".",
-    detail: "The Absolute Standard",
+    icon: Shield,
+    label: "Coaching Standards",
+    description: "100% CPR/AED certified staff with strict adherence to Singapore’s Safe Sport Unified Code.",
+    detail: "Certified & Safe",
     color: "from-amber-500/10 to-transparent",
     iconColor: "text-amber-400",
     iconBg: "bg-amber-400/10 border-amber-400/20",
   },
   {
     icon: Zap,
-    label: "Motto",
-    description:
-      "\"Absolute Mastery. Absolute Pride.\"",
-    detail: "Our Core Belief",
+    label: "Progress Tracking",
+    description: "Quarterly digital \"Data Dashboards\" tracking technical stats and psychological markers for every player.",
+    detail: "Data-Driven Growth",
     color: "from-accent/10 to-transparent",
     iconColor: "text-accent",
     iconBg: "bg-accent/10 border-accent/20",
@@ -58,12 +55,12 @@ const itemVariants = {
   },
 };
 
-export default function Features() {
+export default function AcademyOperations() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="philosophy" className="py-section bg-surface relative overflow-hidden">
+    <section id="programs" className="py-section bg-surface relative overflow-hidden">
       {/* Background accent */}
       <div className="absolute inset-0 bg-grid-fine opacity-40 pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-border to-transparent" />
@@ -77,11 +74,11 @@ export default function Features() {
           className="mb-16 max-w-xl"
         >
           <span className="inline-block font-display font-bold text-[10px] uppercase tracking-[0.25em] text-accent mb-4">
-            Mission &amp; Philosophy
+            How We Operate
           </span>
           <h2 className="font-display text-display-md text-foreground leading-tight">
-            The Absolute{" "}
-            <span className="text-foreground-3">Standard.</span>
+            Academy{" "}
+            <span className="text-foreground-3">Operations &amp; Programs.</span>
           </h2>
         </motion.div>
 

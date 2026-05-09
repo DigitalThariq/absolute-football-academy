@@ -6,9 +6,10 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
+import LiquidEther from "@/components/ui/LiquidEther";
 
 const WHATSAPP_NUMBER = "6589160656";
-const WHATSAPP_MESSAGE = "Hi! I want to book a free trial at Absolute Football Academy.";
+const WHATSAPP_MESSAGE = "Welcome to Absolute Football Academy. Ready to take your game to the Absolute Standard? Let us know your child's age and experience level to book a trial.";
 
 const ageGroups = ["Ages 8–10", "Ages 11–12", "Ages 13–14"];
 
@@ -31,7 +32,7 @@ export default function Hero() {
       </div>
 
       {/* Background image layer */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <img
           src="/player_action.png"
           alt="Absolute Football Academy stadium background"
@@ -65,7 +66,28 @@ export default function Hero() {
         />
       </div>
 
-      <Container className="relative z-10">
+      {/* LiquidEther Background */}
+      <div className="absolute inset-0 z-0">
+        <LiquidEther
+          colors={['#38bdf8', '#5227FF', '#B497CF']}
+          mouseForce={30}
+          cursorSize={150}
+          isViscous
+          viscous={30}
+          iterationsViscous={32}
+          iterationsPoisson={32}
+          resolution={0.5}
+          isBounce={false}
+          autoDemo
+          autoSpeed={0.5}
+          autoIntensity={2.2}
+          takeoverDuration={0.25}
+          autoResumeDelay={3000}
+          autoRampDuration={0.6}
+        />
+      </div>
+
+      <Container className="relative z-10 pointer-events-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center py-12 sm:py-24">
           
           {/* Left Side: Content */}
@@ -105,8 +127,8 @@ export default function Hero() {
                 />
               </span>
               ,<br />
-              Discipline &amp;{" "}
-              <span className="text-white/80">Football Skills</span>
+              Absolute Discipline &amp;{" "}
+              <span className="text-white/80">Football Skills.</span>
             </motion.h1>
 
             {/* Subtext with ambient glow behind */}
@@ -118,8 +140,7 @@ export default function Hero() {
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className="text-white/60 text-lg sm:text-xl leading-relaxed mb-8 max-w-xl font-body"
               >
-                Professional European methodologies meet character-first coaching —
-                for future champions aged{" "}
+                Professional European methodologies meet character-first coaching—for future champions aged{" "}
                 <span className="text-[#38bdf8] font-semibold border-b border-[#38bdf8]/30">8 to 14</span>.
               </motion.p>
             </div>
@@ -152,7 +173,7 @@ export default function Hero() {
                 className="flex flex-col sm:flex-row gap-5"
               >
                 <Button variant="primary" size="lg" className="bg-[#38bdf8] hover:bg-[#38bdf8]/90 text-white border-none shadow-[0_0_30px_rgba(56,189,248,0.3)] px-10">
-                  Free Trial Registration
+                  FREE TRIAL REGISTRATION
                 </Button>
                 <Button
                   variant="ghost"
@@ -161,7 +182,7 @@ export default function Hero() {
                   className="border-white/10 text-white/80 hover:border-[#25d366]/50 hover:text-[#25d366] hover:bg-[#25d366]/5 gap-2.5"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  WhatsApp Coach
+                  WHATSAPP COACH
                 </Button>
               </motion.div>
             </div>
@@ -189,7 +210,7 @@ export default function Hero() {
                   {[1, 2, 3, 4, 5].map((s) => (
                     <Star key={s} className="w-3.5 h-3.5 text-[#38bdf8] fill-[#38bdf8]" />
                   ))}
-                  <span className="text-white font-display font-black text-sm ml-1 tracking-tighter">5.0</span>
+                  <span className="text-white font-display font-black text-sm ml-1 tracking-tighter">5.0 Rating</span>
                 </div>
                 <p className="text-white/40 text-[10px] font-display font-bold uppercase tracking-[0.1em]">
                   Trusted by 500+ families in Singapore
