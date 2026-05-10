@@ -118,8 +118,7 @@ export default function CTA() {
               className="flex flex-wrap items-center justify-center gap-6 mt-10"
             >
               {[
-                { icon: Clock, text: "90-min trial — free" },
-                { icon: null, text: "No credit card required" },
+                { icon: Clock, text: "Free Trial Classes" },
                 { icon: null, text: "Cancel anytime" },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-1.5 text-foreground-3">

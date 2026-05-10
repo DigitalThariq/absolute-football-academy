@@ -7,35 +7,7 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Separator from "@/components/ui/Separator";
 
-const footerLinks = [
-  {
-    label: "Academy",
-    links: [
-      { text: "Programs", href: "#" },
-      { text: "Pathway", href: "#" },
-      { text: "Coaching Staff", href: "#" },
-      { text: "Facilities", href: "#" },
-    ],
-  },
-  {
-    label: "Register",
-    links: [
-      { text: "Book Free Trial", href: "#" },
-      { text: "Enrolment", href: "#" },
-      { text: "Fees & Plans", href: "#" },
-      { text: "Scholarship", href: "#" },
-    ],
-  },
-  {
-    label: "Company",
-    links: [
-      { text: "About Us", href: "#" },
-      { text: "News", href: "#" },
-      { text: "Privacy Policy", href: "#" },
-      { text: "Terms of Service", href: "#" },
-    ],
-  },
-];
+
 
 const social = [
   { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/absolute_football_academy/" },
@@ -59,13 +31,13 @@ export default function Footer() {
 
       <Container ref={ref}>
         <div className="py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
             {/* Brand block */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
-              className="lg:col-span-4"
+              className="flex flex-col items-center"
             >
               {/* Logo */}
               <div className="flex items-center gap-3 mb-6 group">
@@ -73,7 +45,7 @@ export default function Footer() {
                   <div className="absolute inset-0 bg-[#38bdf8]/10 group-hover:bg-[#38bdf8]/20 transition-colors rounded-full" />
                   <Image src="/logo.png" alt="Absolute Football Academy Logo" fill className="object-contain p-1 z-10" />
                 </div>
-                <div className="flex flex-col justify-center gap-0.5 font-display uppercase tracking-wider leading-none">
+                <div className="flex flex-col justify-center gap-0.5 font-display uppercase tracking-wider leading-none text-left">
                   <span className="text-[#38bdf8] font-black text-xl drop-shadow-[0_0_8px_rgba(56,189,248,0.6)]">
                     ABSOLUTE
                   </span>
@@ -83,25 +55,25 @@ export default function Footer() {
                 </div>
               </div>
 
-              <p className="text-foreground-3 text-sm leading-relaxed mb-4 max-w-xs font-body">
+              <p className="text-foreground-3 text-sm leading-relaxed mb-4 font-body">
                 ⚽️ Defining the future of SG Football. | 🏆 Elite U-14 Development. | 🇸🇬 Professional Standards. Global Ambitions.
               </p>
-              <p className="text-foreground-3 text-sm leading-relaxed mb-8 max-w-xs font-body">
+              <p className="text-foreground-3 text-sm leading-relaxed mb-8 font-body">
                 Absolute Football Academy is Singapore’s premier youth program, blending world-class technical training with comprehensive character education.
               </p>
 
               {/* Contact info */}
-              <div className="space-y-3 mb-8">
+              <div className="flex flex-wrap justify-center gap-6 mb-8">
                 {contact.map((item) => (
-                  <div key={item.text} className="flex items-start gap-3">
-                    <item.Icon className="w-3.5 h-3.5 text-accent mt-0.5 flex-shrink-0" />
+                  <div key={item.text} className="flex items-center gap-2">
+                    <item.Icon className="w-3.5 h-3.5 text-accent flex-shrink-0" />
                     <span className="text-foreground-3 text-xs font-body">{item.text}</span>
                   </div>
                 ))}
               </div>
 
               {/* Social */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center justify-center gap-3">
                 {social.map(({ Icon, label, href }) => (
                   <motion.a
                     key={label}
@@ -116,35 +88,6 @@ export default function Footer() {
                 ))}
               </div>
             </motion.div>
-
-            {/* Navigation links */}
-            <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-10">
-              {footerLinks.map((group, i) => (
-                <motion.div
-                  key={group.label}
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.1 + i * 0.08 }}
-                >
-                  <h4 className="font-display font-black text-[10px] uppercase tracking-[0.2em] text-foreground mb-5">
-                    {group.label}
-                  </h4>
-                  <ul className="space-y-3">
-                    {group.links.map((link) => (
-                      <li key={link.text}>
-                        <a
-                          href={link.href}
-                          className="text-foreground-3 hover:text-accent text-sm font-body transition-colors duration-150 inline-flex items-center gap-1.5 group"
-                        >
-                          <span className="w-0 group-hover:w-2 h-px bg-accent transition-all duration-200 overflow-hidden rounded-full" />
-                          {link.text}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </div>
 

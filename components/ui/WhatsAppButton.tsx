@@ -5,7 +5,7 @@ import { useState } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 
 const WHATSAPP_NUMBER = "6589160656";
-const WHATSAPP_MESSAGE = "Hi! I'm interested in booking a free trial session at Absolute Football Academy.";
+const WHATSAPP_MESSAGE = "Hi, I'm interested in joining Absolute Football Academy - can you tell me more?";
 
 export default function WhatsAppButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,13 +59,22 @@ export default function WhatsAppButton() {
         whileTap={{ scale: 0.93 }}
         aria-label="Chat on WhatsApp"
         className={[
-          "relative w-14 h-14 rounded-full flex items-center justify-center",
+          "group relative w-[56px] h-[56px] rounded-full flex items-center justify-center",
           "bg-[#25d366] text-white shadow-[0_0_24px_rgba(37,211,102,0.4)]",
           "transition-all duration-200",
         ].join(" ")}
       >
+        {/* Tooltip on hover */}
+        <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-3 py-2 bg-white text-[#020617] text-sm font-semibold rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap shadow-lg pointer-events-none">
+          Chat with Coach — reply in minutes
+          <div className="absolute top-1/2 -right-1.5 -translate-y-1/2 border-y-4 border-y-transparent border-l-[6px] border-l-white" />
+        </div>
+
         {/* Ping animation */}
-        <span className="absolute inset-0 rounded-full bg-[#25d366] animate-ping opacity-25" />
+        <span 
+          className="absolute inset-0 rounded-full border-[3px] border-[#25d366] opacity-60 pointer-events-none" 
+          style={{ animation: 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite' }}
+        />
         <AnimatePresence mode="wait">
           {isOpen ? (
             <motion.span
