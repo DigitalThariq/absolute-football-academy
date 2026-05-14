@@ -1,17 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle, ChevronDown, Star } from "lucide-react";
+import { MessageCircle, ChevronDown, Star, MapPin, ShieldCheck, Target, Medal, Users, Trophy, Clock, ArrowRight, Gift, Award } from "lucide-react";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
-import Badge from "@/components/ui/Badge";
-import LiquidEther from "@/components/ui/LiquidEther";
 
 const WHATSAPP_NUMBER = "6589160656";
 const WHATSAPP_MESSAGE = "Welcome to Absolute Football Academy. Ready to take your game to the Absolute Standard? Let us know your child's age and experience level to book a trial.";
-
-const ageGroups = ["Ages 8–10", "Ages 11–12", "Ages 13–14"];
 
 export default function Hero() {
   const handleWhatsApp = () => {
@@ -20,270 +16,217 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20 bg-[#020617]">
-      {/* Atmosphere Layer: Top Glow & Vignette */}
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-28 pb-32 bg-[#020817] selection:bg-[#20CFFF] selection:text-[#020817]">
+      {/* Background Image Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Top radial haze */}
-        <div className="absolute top-0 left-0 right-0 h-[60%] bg-gradient-to-b from-[#38bdf8]/10 via-transparent to-transparent opacity-60" />
-        <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 bg-[#38bdf8]/5 blur-[120px] rounded-full" />
+        <Image
+          src="/hero_player_10.png"
+          alt="Absolute Football Academy Player"
+          fill
+          priority
+          className="object-cover object-[75%_top] sm:object-center opacity-70"
+        />
+        {/* Dark Overlays for Text Legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020817] via-[#020817]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020817] via-[#020817]/80 to-transparent sm:via-[#020817]/40" />
+        <div className="absolute top-0 left-0 w-full h-[40%] bg-gradient-to-b from-[#020817]/90 to-transparent" />
         
-        {/* Cinematic Vignette */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(2,6,23,0.4)_70%,rgba(2,6,23,0.8)_100%)]" />
+        {/* Cinematic Cyan Glow */}
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#20CFFF]/10 blur-[120px] rounded-full" />
       </div>
 
-      {/* Background image layer */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <img
-          src="/player_action.png"
-          alt="Absolute Football Academy stadium background"
-          className="w-full h-full object-cover object-center md:object-right opacity-60 sm:opacity-30 scale-105 transition-transform duration-[20s] animate-pulse-slow"
-        />
-        {/* Gradients to fade out the image behind text. On mobile, we use a top-to-bottom fade so the top (person) is visible. On desktop, left-to-right. */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/80 to-transparent lg:bg-none" />
-        <div className="absolute inset-0 hidden lg:block lg:bg-gradient-to-r from-[#020617] via-[#020617]/90 to-transparent" />
-      </div>
-
-      {/* Futuristic Grid with Perspective */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div 
-          className="absolute inset-0 opacity-[0.07]" 
-          style={{ 
-            backgroundImage: 'linear-gradient(#38bdf8 1px, transparent 1px), linear-gradient(90deg, #38bdf8 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-            transform: 'perspective(1000px) rotateX(60deg) translateY(-100px) scale(2)',
-            transformOrigin: 'top center'
-          }} 
-        />
-        {/* Soft drift particles (simulated via multiple glow spots) */}
-        <motion.div 
-          animate={{ y: [-20, 20, -20], x: [-10, 10, -10] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/3 w-1 h-1 bg-[#38bdf8] rounded-full blur-[1px] shadow-[0_0_8px_#38bdf8]" 
-        />
-        <motion.div 
-          animate={{ y: [20, -20, 20], x: [10, -10, 10] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-2/3 w-1.5 h-1.5 bg-[#38bdf8] rounded-full blur-[1px] shadow-[0_0_10px_#38bdf8]" 
-        />
-      </div>
-
-      {/* LiquidEther Background */}
-      <div className="absolute inset-0 z-0">
-        <LiquidEther
-          colors={['#38bdf8', '#5227FF', '#B497CF']}
-          mouseForce={30}
-          cursorSize={150}
-          isViscous
-          viscous={30}
-          iterationsViscous={32}
-          iterationsPoisson={32}
-          resolution={0.5}
-          isBounce={false}
-          autoDemo
-          autoSpeed={0.5}
-          autoIntensity={2.2}
-          takeoverDuration={0.25}
-          autoResumeDelay={3000}
-          autoRampDuration={0.6}
-        />
-      </div>
-
-      <Container className="relative z-10 pointer-events-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center py-12 sm:py-24">
+      <Container className="relative z-10 pointer-events-auto h-full flex flex-col justify-center mt-8 sm:mt-0 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
-          {/* Left Side: Content */}
-          <div className="flex flex-col items-start order-1">
-            {/* Badge */}
+          {/* Left Side: Main Content */}
+          <div className="flex flex-col items-start w-full">
+            
+            {/* Location Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
+              className="w-full sm:w-auto"
             >
-              <Badge variant="accent" className="mb-6 bg-[#38bdf8]/10 text-[#38bdf8] border-[#38bdf8]/20 backdrop-blur-sm px-4 py-1.5">
-                🇸🇬 Singapore&apos;s Premier Youth Academy
-              </Badge>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#081225] bg-[#050B1A]/80 shadow-md mb-8">
+                <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-[#20CFFF]" />
+                <span className="text-[#20CFFF] font-display font-bold uppercase tracking-[0.1em] text-[8px] sm:text-xs">
+                  SINGAPORE&apos;S PREMIER YOUTH ACADEMY
+                </span>
+              </div>
             </motion.div>
 
-            {/* Headline */}
-            <motion.h1
+            {/* Stacked Headline */}
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="font-display text-display-lg sm:text-display-xl text-white mb-6 leading-[1.05]"
+              className="font-display font-black uppercase flex flex-col text-[12vw] sm:text-5xl lg:text-7xl leading-[0.95] tracking-tight mb-8 drop-shadow-lg"
             >
-              Build{" "}
-              <span className="relative inline-block group overflow-hidden">
-                <span className="text-[#38bdf8] drop-shadow-[0_0_20px_rgba(56,189,248,0.4)] italic">Confidence</span>
-                {/* Light Sweep Effect */}
-                <motion.div
-                  initial={{ x: '-100%' }}
-                  animate={{ x: '200%' }}
-                  transition={{ 
-                    duration: 2.5, 
-                    repeat: Infinity, 
-                    repeatDelay: 3.5, 
-                    ease: "easeInOut" 
-                  }}
-                  className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[25deg] pointer-events-none"
-                />
+              <span className="text-white">BUILD</span>
+              <span className="text-[#20CFFF]">CONFIDENCE,</span>
+              <span className="text-white">ABSOLUTE</span>
+              <span className="flex items-center gap-2">
+                <span className="text-[#20CFFF]">DISCIPLINE</span>
+                <span className="text-white font-serif italic font-normal">&amp;</span>
               </span>
-              ,<br />
-              Absolute Discipline &amp;{" "}
-              <span className="text-white/80">Football Skills.</span>
-            </motion.h1>
+              <span className="text-white">FOOTBALL</span>
+              <span className="text-[#20CFFF]">SKILLS.</span>
+            </motion.div>
 
-            {/* Subtext with ambient glow behind */}
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-[#38bdf8]/5 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10" />
-              <motion.p
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-                className="text-white/60 text-lg sm:text-xl leading-relaxed mb-8 max-w-xl font-body"
-              >
-                Professional European methodologies meet character-first coaching—for future champions aged{" "}
-                <span className="text-[#38bdf8] font-semibold border-b border-[#38bdf8]/30">8 to 14</span>.
-              </motion.p>
-            </div>
-
-            {/* Age groups & Buttons container */}
-            <div className="w-full space-y-8">
-              <div className="flex flex-col items-start gap-3">
-                {/* Urgency Badge */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.25 }}
-                  className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-red-950/40 border border-red-500/30 backdrop-blur-md"
-                >
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                  </span>
-                  <span className="text-white text-[12px] font-body">
-                    Limited Spots Available
-                  </span>
-                </motion.div>
-
-                {/* Age group pills */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  className="flex flex-wrap gap-2"
-                >
-                  {ageGroups.map((group, i) => (
-                    <span
-                      key={group}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#020617]/60 backdrop-blur-md border border-white/5 text-white/70 text-[10px] font-display font-semibold uppercase tracking-[0.15em] hover:border-[#38bdf8]/30 hover:text-white transition-all duration-300"
-                    >
-                      <Star className="w-3 h-3 text-[#38bdf8] fill-[#38bdf8]" />
-                      {group}
-                    </span>
-                  ))}
-                </motion.div>
-              </div>
-
-              {/* CTA Buttons */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-5"
-              >
-                <Button variant="primary" size="lg" className="bg-[#38bdf8] hover:bg-[#38bdf8]/90 text-white border-none shadow-[0_0_30px_rgba(56,189,248,0.3)] px-10">
-                  FREE TRIAL REGISTRATION
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="lg"
-                  onClick={handleWhatsApp}
-                  className="border-white/10 text-white/80 hover:border-[#25d366]/50 hover:text-[#25d366] hover:bg-[#25d366]/5 gap-2.5"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  WHATSAPP COACH
-                </Button>
-              </motion.div>
-            </div>
-
-            {/* Social proof */}
+            {/* Subtext */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="flex items-center gap-6 mt-12 pt-8 border-t border-white/5"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-white/80 font-body text-[15px] sm:text-xl leading-relaxed mb-10 max-w-sm flex flex-col gap-0.5 drop-shadow-md"
             >
-              <div className="flex -space-x-3">
-                {[0, 1, 2, 3].map((i) => (
-                  <div
-                    key={i}
-                    className="w-10 h-10 rounded-full border-2 border-[#020617] bg-surface-3 shadow-xl"
-                    style={{
-                      background: `hsl(${210 + i * 15}, 60%, ${25 + i * 5}%)`,
-                    }}
-                  />
+              <span>Developing young athletes.</span>
+              <span>Building champions.</span>
+              <span className="text-[#20CFFF] font-semibold">For the future.</span>
+            </motion.div>
+
+            {/* Primary CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="w-full sm:w-auto mb-16"
+            >
+              <button 
+                onClick={handleWhatsApp}
+                className="group relative flex items-center justify-between w-full sm:w-80 h-[72px] bg-gradient-to-r from-[#20CFFF] to-[#009DFF] rounded-full p-2 shadow-[0_0_30px_rgba(32,207,255,0.3)] hover:shadow-[0_0_50px_rgba(32,207,255,0.6)] transition-all duration-300"
+              >
+                {/* Gift Icon Box */}
+                <div className="flex items-center justify-center w-[56px] h-[56px] rounded-full bg-[#050B1A]/40">
+                  <Gift className="w-7 h-7 text-[#020817]" />
+                </div>
+                
+                {/* Text Content */}
+                <div className="flex flex-col items-center justify-center flex-1 px-2">
+                  <span className="text-[#020817] font-black font-display text-[22px] uppercase tracking-widest leading-none mb-1">
+                    FREE TRIAL
+                  </span>
+                  <span className="text-[#020817]/80 font-bold font-display text-[9px] uppercase tracking-[0.2em] leading-none">
+                    START YOUR JOURNEY
+                  </span>
+                </div>
+                
+                {/* Arrow Icon */}
+                <div className="flex items-center justify-center w-10 h-10 mr-4">
+                  <ArrowRight className="w-7 h-7 text-[#020817] group-hover:translate-x-1.5 transition-transform" />
+                </div>
+              </button>
+            </motion.div>
+
+          </div>
+
+          {/* Right Side: Hidden on mobile */}
+          <div className="hidden lg:flex justify-end items-center">
+            {/* Desktop graphics */}
+          </div>
+        </div>
+
+        {/* Trust Indicators Section */}
+        <div className="w-full flex flex-col gap-5 mt-4 relative z-20">
+          
+          {/* 3-Column Features Row */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="grid grid-cols-3 gap-2 sm:gap-4 w-full py-4 px-2 sm:p-6 rounded-xl border border-[#081225] bg-[#050B1A] shadow-lg"
+          >
+            {[
+              { icon: ShieldCheck, text: "EXPERT COACHES" },
+              { icon: Target, text: "PROVEN TRAINING" },
+              { icon: Medal, text: "PLAYER DEVELOPMENT" }
+            ].map((feature, i) => (
+              <div key={i} className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3 text-center sm:text-left justify-center sm:justify-start border-r border-[#081225] last:border-0 px-1">
+                <feature.icon className="w-5 h-5 sm:w-8 sm:h-8 text-[#20CFFF] shrink-0" />
+                <span className="text-white/80 font-display font-bold uppercase text-[7.5px] sm:text-xs tracking-wider leading-tight w-[60px] sm:w-auto mt-1 sm:mt-0">
+                  {feature.text}
+                </span>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* 4-Column Stats Grid */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="grid grid-cols-4 gap-2 sm:gap-6 w-full py-5 px-1 sm:p-8 rounded-xl border border-[#081225] bg-[#050B1A] shadow-lg"
+          >
+            {[
+              { icon: Users, stat: "1000+", label: "PLAYERS", sublabel: "DEVELOPED" },
+              { icon: Trophy, stat: "50+", label: "TOURNAMENTS", sublabel: "WON" },
+              { icon: Clock, stat: "10+", label: "YEARS OF", sublabel: "EXCELLENCE" },
+              { icon: Star, stat: "4.9/5", label: "PARENT", sublabel: "RATING" }
+            ].map((item, i) => (
+              <div key={i} className="flex flex-col items-center text-center border-r border-[#081225] last:border-0">
+                <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-[#20CFFF] mb-2 sm:mb-4 shrink-0 fill-transparent" />
+                <span className="text-[#20CFFF] font-black font-display text-[17px] sm:text-3xl leading-none mb-1 sm:mb-2">{item.stat}</span>
+                <span className="text-white/80 font-bold font-display text-[6.5px] sm:text-[10px] uppercase tracking-[0.15em] leading-tight">{item.label}</span>
+                <span className="text-white/60 font-bold font-display text-[6.5px] sm:text-[10px] uppercase tracking-[0.15em] leading-tight">{item.sublabel}</span>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Bottom Trust Bar */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.6 }}
+            className="flex items-center justify-between w-full pt-2 px-1"
+          >
+            <div className="flex items-center gap-3">
+              {/* Avatars */}
+              <div className="flex -space-x-2">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i} className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-[#020817] overflow-hidden bg-slate-800">
+                     <Image src={`/player_action.png`} alt={`User ${i}`} width={32} height={32} className="object-cover" />
+                  </div>
                 ))}
               </div>
-              <div>
-                <div className="flex items-center gap-1.5 mb-1">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <Star key={s} className="w-3.5 h-3.5 text-[#38bdf8] fill-[#38bdf8]" />
-                  ))}
-                  <span className="text-white font-display font-black text-sm ml-1 tracking-tighter">5.0 Rating</span>
-                </div>
-                <p className="text-white/40 text-[10px] font-display font-bold uppercase tracking-[0.1em]">
-                  Trusted by 500+ families in Singapore
-                </p>
+              
+              {/* Trust Text */}
+              <div className="flex flex-col">
+                <span className="text-white font-display font-black uppercase text-[8.5px] sm:text-sm tracking-[0.15em] leading-tight">
+                  TRUSTED BY PARENTS.
+                </span>
+                <span className="text-[#20CFFF] font-display font-black uppercase text-[8.5px] sm:text-sm tracking-[0.15em] leading-tight mt-0.5">
+                  LOVED BY PLAYERS.
+                </span>
               </div>
-            </motion.div>
-          </div>
+            </div>
 
-          {/* Right Side: Image */}
-          <div className="order-2 flex justify-center lg:justify-end relative">
-            {/* Ambient glow behind image */}
-            <div className="absolute inset-0 bg-[#38bdf8]/10 blur-[100px] rounded-full scale-150 animate-pulse-slow" />
-            
-            <motion.div 
-              className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-[500px] lg:h-[500px]"
-              initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
-              animate={{ 
-                opacity: 1, 
-                scale: 1,
-                rotate: 0,
-                y: [0, -15, 0]
-              }}
-              transition={{ 
-                opacity: { duration: 1 },
-                scale: { duration: 1 },
-                rotate: { duration: 1.5, ease: "easeOut" },
-                y: { duration: 6, repeat: Infinity, ease: "easeInOut" }
-              }}
-            >
-              <Image 
-                src="/absolute_neon_football.png" 
-                alt="Absolute Football Academy Premium Branding" 
-                fill 
-                className="object-contain drop-shadow-[0_0_60px_rgba(56,189,248,0.3)] filter contrast-125" 
-                priority
-              />
-              {/* Soft haze blend */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/40 via-transparent to-transparent pointer-events-none" />
-            </motion.div>
-          </div>
+            {/* Premium Laurel/Award Icon */}
+            <div className="flex items-center justify-center w-10 h-10 rounded-full border border-[#081225] bg-[#050B1A] shadow-[0_0_15px_rgba(32,207,255,0.15)] shrink-0">
+              <Award className="w-5 h-5 text-[#20CFFF]" />
+            </div>
+          </motion.div>
 
         </div>
       </Container>
+      
+      {/* Sticky Bottom Bar for Mobile Only */}
+      <div className="fixed bottom-0 left-0 right-0 z-[100] sm:hidden">
+        <div className="relative">
+          {/* Scroll down indicator floating above */}
+          <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg border border-black/10 cursor-pointer">
+            <ChevronDown className="w-5 h-5 text-[#020817]" />
+          </div>
+          {/* Main sticky banner */}
+          <button onClick={handleWhatsApp} className="w-full h-14 bg-[#20CFFF] flex items-center justify-center gap-3 active:bg-[#009DFF] transition-colors">
+            <span className="text-[#020817] font-display font-black uppercase text-[15px] tracking-widest mt-0.5">
+              BOOK FREE TRIAL SESSION
+            </span>
+            <ArrowRight className="w-4 h-4 text-[#020817]" />
+          </button>
+        </div>
+      </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3"
-      >
-        <span className="text-white/30 text-[9px] font-display font-black uppercase tracking-[0.3em]">Precision Excellence</span>
-        <ChevronDown className="w-5 h-5 text-[#38bdf8]/40 animate-bounce" />
-      </motion.div>
     </section>
   );
 }
