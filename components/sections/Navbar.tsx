@@ -56,13 +56,27 @@ export default function Navbar() {
             {/* Desktop Nav - Hidden as per new clean layout request */}
             {/* <nav className="hidden md:flex items-center gap-1"> ... </nav> */}
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 sm:gap-6">
+              {/* About Link */}
+              <a href="/about" className="text-white/80 hover:text-[#38bdf8] text-[10px] sm:text-xs font-display font-bold uppercase tracking-widest transition-colors hidden sm:block">
+                About
+              </a>
+
+              {/* Reviews Link */}
+              <a href="/reviews" className="text-white/80 hover:text-[#38bdf8] text-[10px] sm:text-xs font-display font-bold uppercase tracking-widest transition-colors hidden sm:block">
+                Reviews
+              </a>
+
+              {/* FAQ Link */}
+              <a href="/faq" className="text-white/80 hover:text-[#38bdf8] text-[10px] sm:text-xs font-display font-bold uppercase tracking-widest transition-colors hidden sm:block">
+                FAQ
+              </a>
+
               {/* CTA */}
               <div>
                 <Button 
                   variant="primary" 
-                  size="sm" 
-                  className="bg-[#38bdf8] hover:bg-[#38bdf8]/90 text-white font-display font-black uppercase tracking-widest text-[10px] shadow-[0_0_15px_rgba(56,189,248,0.3)] border-none"
+                  className="bg-[#38bdf8] hover:bg-[#38bdf8]/90 text-white font-display font-black uppercase tracking-widest text-[11px] sm:text-[13px] px-5 py-2.5 sm:px-8 sm:py-3 rounded-full shadow-[0_0_20px_rgba(56,189,248,0.6)] hover:shadow-[0_0_30px_rgba(56,189,248,0.9)] border border-[#38bdf8]/50 ring-2 ring-[#38bdf8]/20 ring-offset-2 ring-offset-[#020617] animate-pulse transition-all duration-300"
                 >
                   Book Free Trial
                 </Button>

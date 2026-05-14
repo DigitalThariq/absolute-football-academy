@@ -62,7 +62,7 @@ export default function CTA() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
               </span>
               <span className="font-display font-bold text-[10px] uppercase tracking-[0.2em] text-accent">
-                Limited Spots Available — May 2025 Intake
+                Limited Spots Available
               </span>
             </motion.div>
 

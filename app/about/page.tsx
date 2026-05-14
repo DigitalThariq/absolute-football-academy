@@ -1,20 +1,18 @@
 "use client";
 
 import Navbar from "@/components/sections/Navbar";
-import Hero from "@/components/sections/Hero";
-import CTA from "@/components/sections/CTA";
-import InstagramFeed from "@/components/sections/InstagramFeed";
+import Features from "@/components/sections/Features";
+import Operations from "@/components/sections/Operations";
 import Footer from "@/components/sections/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
-export default function Home() {
+export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main>
-        <Hero />
-        <CTA />
-        <InstagramFeed />
+      <main className="pt-20">
+        <Features />
+        <Operations />
       </main>
       <Footer />
       <WhatsAppButton />

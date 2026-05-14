@@ -36,10 +36,11 @@ export default function Hero() {
         <img
           src="/player_action.png"
           alt="Absolute Football Academy stadium background"
-          className="w-full h-full object-cover opacity-30 scale-105 transition-transform duration-[20s] animate-pulse-slow"
+          className="w-full h-full object-cover object-center md:object-right opacity-60 sm:opacity-30 scale-105 transition-transform duration-[20s] animate-pulse-slow"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/90 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-[#020617]/40" />
+        {/* Gradients to fade out the image behind text. On mobile, we use a top-to-bottom fade so the top (person) is visible. On desktop, left-to-right. */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/80 to-transparent lg:bg-none" />
+        <div className="absolute inset-0 hidden lg:block lg:bg-gradient-to-r from-[#020617] via-[#020617]/90 to-transparent" />
       </div>
 
       {/* Futuristic Grid with Perspective */}
@@ -160,7 +161,7 @@ export default function Hero() {
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                   </span>
                   <span className="text-white text-[12px] font-body">
-                    Now enrolling for 2026 — Limited Spots left
+                    Limited Spots Available
                   </span>
                 </motion.div>
 
