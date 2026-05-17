@@ -2,7 +2,9 @@
 
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
-import CTA from "@/components/sections/CTA";
+import Coach from "@/components/sections/Coach";
+import VideoShowcase from "@/components/sections/VideoShowcase";
+import Sponsors from "@/components/sections/Sponsors";
 import InstagramFeed from "@/components/sections/InstagramFeed";
 import Footer from "@/components/sections/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
@@ -13,7 +15,9 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <CTA />
+        <Coach />
+        <VideoShowcase />
+        <Sponsors />
         <InstagramFeed />
       </main>
       <Footer />

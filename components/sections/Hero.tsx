@@ -1,10 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle, ChevronDown, Star, MapPin, ShieldCheck, Target, Medal, Users, Trophy, Clock, ArrowRight, Gift, Award } from "lucide-react";
+import { ChevronDown, ArrowRight, MapPin, Gift } from "lucide-react";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
 
 const WHATSAPP_NUMBER = "6589160656";
 const WHATSAPP_MESSAGE = "Welcome to Absolute Football Academy. Ready to take your game to the Absolute Standard? Let us know your child's age and experience level to book a trial.";
@@ -127,87 +126,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Trust Indicators Section */}
-        <div className="w-full flex flex-col gap-5 mt-4 relative z-20">
-          
-          {/* 3-Column Features Row */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="grid grid-cols-3 gap-2 sm:gap-4 w-full py-4 px-2 sm:p-6 rounded-xl border border-[#081225] bg-[#050B1A] shadow-lg"
-          >
-            {[
-              { icon: ShieldCheck, text: "EXPERT COACHES" },
-              { icon: Target, text: "PROVEN TRAINING" },
-              { icon: Medal, text: "PLAYER DEVELOPMENT" }
-            ].map((feature, i) => (
-              <div key={i} className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3 text-center sm:text-left justify-center sm:justify-start border-r border-[#081225] last:border-0 px-1">
-                <feature.icon className="w-5 h-5 sm:w-8 sm:h-8 text-[#20CFFF] shrink-0" />
-                <span className="text-white/80 font-display font-bold uppercase text-[7.5px] sm:text-xs tracking-wider leading-tight w-[60px] sm:w-auto mt-1 sm:mt-0">
-                  {feature.text}
-                </span>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* 4-Column Stats Grid */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="grid grid-cols-4 gap-2 sm:gap-6 w-full py-5 px-1 sm:p-8 rounded-xl border border-[#081225] bg-[#050B1A] shadow-lg"
-          >
-            {[
-              { icon: Users, stat: "1000+", label: "PLAYERS", sublabel: "DEVELOPED" },
-              { icon: Trophy, stat: "50+", label: "TOURNAMENTS", sublabel: "WON" },
-              { icon: Clock, stat: "10+", label: "YEARS OF", sublabel: "EXCELLENCE" },
-              { icon: Star, stat: "4.9/5", label: "PARENT", sublabel: "RATING" }
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center text-center border-r border-[#081225] last:border-0">
-                <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-[#20CFFF] mb-2 sm:mb-4 shrink-0 fill-transparent" />
-                <span className="text-[#20CFFF] font-black font-display text-[17px] sm:text-3xl leading-none mb-1 sm:mb-2">{item.stat}</span>
-                <span className="text-white/80 font-bold font-display text-[6.5px] sm:text-[10px] uppercase tracking-[0.15em] leading-tight">{item.label}</span>
-                <span className="text-white/60 font-bold font-display text-[6.5px] sm:text-[10px] uppercase tracking-[0.15em] leading-tight">{item.sublabel}</span>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Bottom Trust Bar */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.6 }}
-            className="flex items-center justify-between w-full pt-2 px-1"
-          >
-            <div className="flex items-center gap-3">
-              {/* Avatars */}
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-[#020817] overflow-hidden bg-slate-800">
-                     <Image src={`/player_action.png`} alt={`User ${i}`} width={32} height={32} className="object-cover" />
-                  </div>
-                ))}
-              </div>
-              
-              {/* Trust Text */}
-              <div className="flex flex-col">
-                <span className="text-white font-display font-black uppercase text-[8.5px] sm:text-sm tracking-[0.15em] leading-tight">
-                  TRUSTED BY PARENTS.
-                </span>
-                <span className="text-[#20CFFF] font-display font-black uppercase text-[8.5px] sm:text-sm tracking-[0.15em] leading-tight mt-0.5">
-                  LOVED BY PLAYERS.
-                </span>
-              </div>
-            </div>
-
-            {/* Premium Laurel/Award Icon */}
-            <div className="flex items-center justify-center w-10 h-10 rounded-full border border-[#081225] bg-[#050B1A] shadow-[0_0_15px_rgba(32,207,255,0.15)] shrink-0">
-              <Award className="w-5 h-5 text-[#20CFFF]" />
-            </div>
-          </motion.div>
-
-        </div>
       </Container>
       
       {/* Sticky Bottom Bar for Mobile Only */}
