@@ -44,6 +44,7 @@ export default function Navbar() {
                 <div className="relative w-11 h-11 sm:w-14 sm:h-14 flex items-center justify-center rounded-full bg-[#050B1A] overflow-hidden border border-[#20CFFF]/30 shadow-[0_0_15px_rgba(32,207,255,0.3)] group-hover:shadow-[0_0_25px_rgba(32,207,255,0.8)] group-hover:scale-105 transition-all duration-300">
                   <div className="absolute inset-0 bg-[#20CFFF]/10 group-hover:bg-[#20CFFF]/20 transition-colors rounded-full" />
                   <Image src="/logo.png" alt="Absolute Football Academy Logo" fill className="object-contain p-1 z-10" />
+
                 </div>
               </motion.a>
 
@@ -60,37 +61,32 @@ export default function Navbar() {
             </div>
 
             <div className="flex items-center gap-3 sm:gap-6">
-              {/* Desktop Links */}
-              <div className="hidden lg:flex items-center gap-6">
-                <a href="/about" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">
-                  About
-                </a>
-                <a href="/reviews" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">
-                  Reviews
-                </a>
-                <a href="/faq" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">
-                  FAQ
-                </a>
-              </div>
+                {/* Desktop Links */}
+                <div className="hidden lg:flex items-center gap-6">
+                  <a href="/about" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">About</a>
+                  <a href="/reviews" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">Reviews</a>
+                  <a href="/faq" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">FAQ</a>
+                  <a href="/sponsors" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">Sponsors</a>
+                </div>
 
-              {/* Mobile CTA (and Desktop CTA) */}
-              <div>
-                <Button 
-                  variant="primary" 
-                  className="bg-[#20CFFF] hover:bg-[#20CFFF]/90 text-[#020817] font-display font-black uppercase tracking-wider text-[11px] sm:text-[13px] px-4 py-2 sm:px-8 sm:py-3 rounded-full shadow-[0_0_20px_rgba(32,207,255,0.4)] border-none transition-all duration-300 h-auto min-h-0"
+                {/* Mobile CTA (and Desktop CTA) */}
+                <div>
+                  <Button
+                    variant="primary"
+                    className="bg-[#20CFFF] hover:bg-[#20CFFF]/90 text-[#020817] font-display font-black uppercase tracking-wider text-[11px] sm:text-[13px] px-4 py-2 sm:px-8 sm:py-3 rounded-full shadow-[0_0_20px_rgba(32,207,255,0.4)] border-none transition-all duration-300 h-auto min-h-0"
+                  >
+                    FREE TRIAL
+                  </Button>
+                </div>
+
+                {/* Mobile Menu Toggle */}
+                <button
+                  className="lg:hidden text-white hover:text-[#20CFFF] p-2 -mr-2 transition-colors flex items-center justify-center min-w-[44px] min-h-[44px]"
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  aria-label="Toggle menu"
                 >
-                  FREE TRIAL
-                </Button>
-              </div>
-
-              {/* Mobile Menu Toggle */}
-              <button 
-                className="lg:hidden text-white hover:text-[#20CFFF] p-2 -mr-2 transition-colors flex items-center justify-center min-w-[44px] min-h-[44px]"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                aria-label="Toggle menu"
-              >
-                {isMobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
-              </button>
+                  {isMobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+                </button>
             </div>
           </div>
         </Container>
