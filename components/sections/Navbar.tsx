@@ -110,6 +110,9 @@ export default function Navbar() {
                 <a href="/faq" className="text-white hover:text-[#38bdf8] text-sm font-display font-bold uppercase tracking-widest transition-colors">
                   FAQ
                 </a>
+                <a href="/sponsors" className="text-white hover:text-[#38bdf8] text-sm font-display font-bold uppercase tracking-widest transition-colors">
+                  Sponsors
+                </a>
               </div>
             </motion.div>
           )}
