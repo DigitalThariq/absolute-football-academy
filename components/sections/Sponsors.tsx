@@ -50,9 +50,9 @@ export default function Sponsors() {
           {sponsorLogos.map((src, idx) => (
             <div
               key={idx}
-              className="relative w-32 h-16 sm:w-40 sm:h-20 flex items-center justify-center border border-white/10 rounded-xl bg-[#050B1A]/40 backdrop-blur-sm hover:shadow-[0_0_20px_rgba(32,207,255,0.4)] transition-shadow"
+              className="relative w-48 h-24 sm:w-64 sm:h-32 flex items-center justify-center border border-white/10 rounded-xl bg-[#050B1A]/40 backdrop-blur-sm hover:shadow-[0_0_20px_rgba(32,207,255,0.4)] transition-shadow"
             >
-              <Image src={src} alt={`Sponsor ${idx + 1}`} fill className="object-contain p-2" />
+              <Image src={src} alt={`Sponsor ${idx + 1}`} fill className="object-contain p-2 sm:p-4" />
             </div>
           ))}
         </motion.div>

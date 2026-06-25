@@ -65,6 +65,7 @@ export default function Navbar() {
                 <div className="hidden lg:flex items-center gap-6">
                   <a href="/about" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">About</a>
                   <a href="/reviews" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">Reviews</a>
+                  <a href="/gallery" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">Gallery</a>
                   <a href="/faq" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">FAQ</a>
                   <a href="/sponsors" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">Sponsors</a>
                 </div>
@@ -106,6 +107,9 @@ export default function Navbar() {
                 </a>
                 <a href="/reviews" className="text-white hover:text-[#38bdf8] text-sm font-display font-bold uppercase tracking-widest transition-colors">
                   Reviews
+                </a>
+                <a href="/gallery" className="text-white hover:text-[#38bdf8] text-sm font-display font-bold uppercase tracking-widest transition-colors">
+                  Gallery
                 </a>
                 <a href="/faq" className="text-white hover:text-[#38bdf8] text-sm font-display font-bold uppercase tracking-widest transition-colors">
                   FAQ
