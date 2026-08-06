@@ -6,16 +6,33 @@ import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 
-const categories = ["All", "Training", "Matches", "Events"];
+const categories = ["All", "Coaches", "Training", "Matches", "Events"];
 
-// Standardized photos array simulating files in /public/gallery
+// Standardized photos array
 const photos = [
-  { id: 1, src: "/gallery/training_1.png", category: "Training", alt: "Training drill" },
-  { id: 2, src: "/gallery/match_1.png", category: "Matches", alt: "Match action" },
-  { id: 3, src: "/gallery/event_1.png", category: "Events", alt: "Academy event" },
-  { id: 4, src: "/gallery/training_1.png", category: "Training", alt: "Training session" },
-  { id: 5, src: "/gallery/match_1.png", category: "Matches", alt: "Match highlight" },
-  { id: 6, src: "/gallery/event_1.png", category: "Events", alt: "Special event" },
+  { id: 1, src: "/gallery/Coach%20Noor%20(Head%20Coach).JPG", category: "Coaches", alt: "Coach Noor (Head Coach)" },
+  { id: 2, src: "/gallery/Coach%20Noor%20(Head%20Coach)%202.JPG", category: "Coaches", alt: "Coach Noor" },
+  { id: 3, src: "/gallery/Coach%20Haran.JPG", category: "Coaches", alt: "Coach Haran" },
+  { id: 4, src: "/gallery/Coach%20Simon%20B.JPG", category: "Coaches", alt: "Coach Simon B" },
+  { id: 5, src: "/gallery/Coach%20Vincent%20Hardie.JPG", category: "Coaches", alt: "Coach Vincent Hardie" },
+  { id: 6, src: "/gallery/Coach%20Mirza.JPG", category: "Coaches", alt: "Coach Mirza" },
+  { id: 7, src: "/gallery/Coaching.jpeg", category: "Coaches", alt: "Coaching Session" },
+  { id: 8, src: "/gallery/Training%201.JPG", category: "Training", alt: "Training Session 1" },
+  { id: 9, src: "/gallery/Training%202.JPG", category: "Training", alt: "Training Session 2" },
+  { id: 10, src: "/gallery/Events%201.JPG", category: "Events", alt: "Academy Event 1" },
+  { id: 11, src: "/gallery/Events%202.JPG", category: "Events", alt: "Academy Event 2" },
+  { id: 12, src: "/gallery/Event%203.JPG", category: "Events", alt: "Academy Event 3" },
+  { id: 13, src: "/gallery/Events%203.jpeg", category: "Events", alt: "Academy Event 4" },
+  { id: 14, src: "/gallery/Events%204.jpeg", category: "Events", alt: "Academy Event 5" },
+  { id: 15, src: "/gallery/Events%205.jpg", category: "Events", alt: "Academy Event 6" },
+  { id: 16, src: "/gallery/Trial%20Invitation.JPG", category: "Events", alt: "Trial Invitation" },
+  { id: 17, src: "/gallery/Match%201.jpeg", category: "Matches", alt: "Match 1" },
+  { id: 18, src: "/gallery/Match%202.jpeg", category: "Matches", alt: "Match 2" },
+  { id: 19, src: "/gallery/Match%203.jpeg", category: "Matches", alt: "Match 3" },
+  { id: 20, src: "/gallery/Macth%204.jpg", category: "Matches", alt: "Match 4" },
+  { id: 21, src: "/gallery/Match%205.jpg", category: "Matches", alt: "Match 5" },
+  { id: 22, src: "/gallery/SYL%20Prize.jpeg", category: "Events", alt: "SYL Prize" },
+  { id: 23, src: "/gallery/Match.mp4", category: "Matches", alt: "Match Video", type: "video" },
 ];
 
 export default function GalleryPage() {
@@ -107,15 +124,26 @@ export default function GalleryPage() {
                 onClick={() => openLightbox(index)}
               >
                 {/* Subtle zoom hover effect via group-hover:scale-105 */}
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                  loading="lazy"
-                  quality={80}
-                />
+                {photo.type === 'video' ? (
+                  <video
+                    src={photo.src}
+                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                  />
+                ) : (
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                    loading="lazy"
+                    quality={80}
+                  />
+                )}
                 
                 {/* Overlay on hover */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
@@ -123,7 +151,7 @@ export default function GalleryPage() {
                     {photo.category}
                   </span>
                   <span className="text-white font-medium text-sm">
-                    {photo.alt}
+                    {photo.alt} {photo.type === 'video' && '(Video)'}
                   </span>
                 </div>
               </motion.div>
@@ -187,14 +215,24 @@ export default function GalleryPage() {
                   transition={{ duration: 0.3 }}
                   className="relative w-full h-full"
                 >
-                  <Image
-                    src={filteredPhotos[selectedPhotoIndex].src}
-                    alt={filteredPhotos[selectedPhotoIndex].alt}
-                    fill
-                    className="object-contain"
-                    priority // Load immediately when lightbox opens
-                    quality={100}
-                  />
+                  {filteredPhotos[selectedPhotoIndex].type === 'video' ? (
+                    <video
+                      src={filteredPhotos[selectedPhotoIndex].src}
+                      className="w-full h-full object-contain"
+                      controls
+                      autoPlay
+                      playsInline
+                    />
+                  ) : (
+                    <Image
+                      src={filteredPhotos[selectedPhotoIndex].src}
+                      alt={filteredPhotos[selectedPhotoIndex].alt}
+                      fill
+                      className="object-contain"
+                      priority // Load immediately when lightbox opens
+                      quality={100}
+                    />
+                  )}
                 </motion.div>
               </AnimatePresence>
               

@@ -7,7 +7,8 @@ import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 
 const sponsorLogos = [
-  "/adel_logo.png"
+  "/adel_logo.png",
+  "/salaam_cola_logo.png"
 ];
 
 export default function Sponsors() {

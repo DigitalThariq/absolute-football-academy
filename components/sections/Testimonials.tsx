@@ -8,38 +8,38 @@ import Container from "@/components/ui/Container";
 const testimonials = [
   {
     quote:
-      "The transformation in my son's confidence was visible within just a month. The coaches treat them with professional respect while keeping it genuinely fun — it's a rare balance.",
-    author: "Sarah T.",
-    role: "Parent · Foundation Level",
+      "AFC has been incredible for my child’s development. The structured training sessions are top-notch, and the coaches balance technical discipline with a really supportive attitude. I've watched my child's positioning, agility, and game intelligence skyrocket over the past few years. If you want a soccer academy that actually delivers on skill development while keeping the sport fun, AFC is the absolute best choice.",
+    author: "Seth and Shay",
+    role: "Parent",
     stars: 5,
-    initials: "ST",
+    initials: "S&S",
     accent: "from-sky-400/20",
   },
   {
     quote:
-      "High-end facilities and top-tier coaching that rivals European academies I've seen. This is by far the most organised and professional youth setup we've attended in Singapore.",
-    author: "David L.",
-    role: "Parent · Development Level",
+      "Excellent soccer academy! The coaches are professional, the training is well-organized, and the atmosphere is fun. My child looks forward to every session and has improved a lot. Since joining AFC, he has become more confident. A great place for young footballers to learn and grow. Highly recommended!",
+    author: "Clovis",
+    role: "Parent",
     stars: 5,
-    initials: "DL",
+    initials: "C",
     accent: "from-violet-400/20",
   },
   {
     quote:
-      "My daughter went from zero interest to asking to train every day. The coaches found her passion and ignited it. We couldn't be more grateful.",
-    author: "Priya M.",
-    role: "Parent · Foundation Level",
+      "I recommend Absolute football academy to anyone looking to develop their football skills in a positive and professional environment. The atmosphere is welcoming, motivating, and encourages discipline, confidence and a love for the game. It's a fantastic place for young footballers to learn, grow and enjoy playing football.",
+    author: "Irfan",
+    role: "Parent",
     stars: 5,
-    initials: "PM",
+    initials: "I",
     accent: "from-rose-400/20",
   },
   {
     quote:
-      "Our son has trained with academies in the UK and Australia. Absolute Football Academy matches that standard — and the family atmosphere here is something truly special.",
-    author: "James K.",
-    role: "Parent · Elite Level",
+      "I enrolled my son, Aarif, in absolute academy when he was 7 years old. Before that, Aarif only played football with his friends at the void deck and had little knowledge of the game or his position. Now at 10 years old, Aarif has improved so much in his skills, confidence, and understanding of football. It’s amazing to watch him play in tournaments and compete in the Singapore Youth League (SYL). Thank you to the coaches for their dedication and support. We highly recommend this absolute academy!",
+    author: "Aarif's Parent",
+    role: "Parent",
     stars: 5,
-    initials: "JK",
+    initials: "A",
     accent: "from-amber-400/20",
   },
 ];

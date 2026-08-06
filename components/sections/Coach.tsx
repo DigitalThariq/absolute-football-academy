@@ -7,7 +7,7 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 
 const WHATSAPP_NUMBER = "6589160656";
-const WHATSAPP_MESSAGE = "Hi Coach Nur! I'd like to book a free trial session at Absolute Football Academy.";
+const WHATSAPP_MESSAGE = "Hi Coach Noor! I'd like to book a free trial session at Absolute Football Academy.";
 
 const credentials = [
   "Singapore Football Association Licensed Coach",
@@ -60,8 +60,8 @@ export default function Coach() {
             <div className="relative rounded-2xl overflow-hidden border border-[#20CFFF]/15 shadow-[0_8px_40px_rgba(0,0,0,0.5)]">
               <div className="relative w-full aspect-[3/4] sm:aspect-[4/5]">
                 <Image
-                  src="/coach_nur.png"
-                  alt="Coach Nur — Head Coach, Absolute Football Academy"
+                  src="/coach_nur.JPG"
+                  alt="Coach Noor — Head Coach, Absolute Football Academy"
                   fill
                   className="object-cover object-top"
                   priority
@@ -73,7 +73,7 @@ export default function Coach() {
               {/* Name card overlaid at bottom */}
               <div className="absolute bottom-0 left-0 right-0 p-5">
                 <p className="text-white font-display font-black text-2xl sm:text-3xl leading-none mb-1">
-                  Coach Nur
+                  Coach Noor
                 </p>
                 <p className="text-[#20CFFF] font-display font-bold uppercase text-[10px] sm:text-xs tracking-[0.2em]">
                   Head Coach · Absolute Football Academy
@@ -99,7 +99,7 @@ export default function Coach() {
             </h2>
 
             <p className="text-white/60 font-body text-[15px] sm:text-[17px] leading-relaxed mb-8 max-w-lg">
-              Coach Nur brings over a decade of hands-on youth football development experience 
+              Coach Noor brings over a decade of hands-on youth football development experience 
               to Absolute Football Academy. His approach combines technical excellence with 
               personal mentorship — building not just better players, but confident young individuals.
             </p>
@@ -133,7 +133,7 @@ export default function Coach() {
                 shadow-[0_4px_24px_rgba(32,207,255,0.3)] hover:shadow-[0_6px_32px_rgba(32,207,255,0.45)]
                 transition-all duration-250"
             >
-              Train With Coach Nur
+              Train With Coach Noor
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </motion.div>
