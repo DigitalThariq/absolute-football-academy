@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { ChevronDown, ArrowRight, Gift } from "lucide-react";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
@@ -38,10 +38,15 @@ const slides = [
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showSticky, setShowSticky] = useState(false);
   
   // Parallax effect for the background
   const { scrollY } = useScroll();
   const yParallax = useTransform(scrollY, [0, 1000], [0, 350]);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setShowSticky(latest > 120);
+  });
 
   useEffect(() => {
     // 5 seconds per slide.
@@ -88,7 +93,7 @@ export default function Hero() {
         <div 
           className="absolute inset-0 z-10"
           style={{
-            background: "linear-gradient(90deg, rgba(4,10,22,.65) 0%, rgba(4,10,22,.55) 35%, rgba(4,10,22,.40) 60%, rgba(4,10,22,.60) 100%)"
+            background: "linear-gradient(90deg, rgba(4,10,22,.80) 0%, rgba(4,10,22,.70) 35%, rgba(4,10,22,.40) 60%, rgba(4,10,22,.60) 100%)"
           }}
         />
         
@@ -134,7 +139,7 @@ export default function Hero() {
             </div>
 
             {/* Dynamic Animated Subtext */}
-            <div className="h-[28px] sm:h-[36px] relative w-full mb-10 max-w-sm">
+            <div className="h-[28px] sm:h-[36px] relative w-full mb-5 max-w-sm">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentSlide}
@@ -158,26 +163,26 @@ export default function Hero() {
             >
               <button 
                 onClick={handleWhatsApp}
-                className="group relative flex items-center justify-between w-full sm:w-80 h-[72px] bg-gradient-to-r from-[#20CFFF] to-[#009DFF] rounded-full p-2 shadow-[0_0_30px_rgba(32,207,255,0.3)] hover:shadow-[0_0_50px_rgba(32,207,255,0.6)] transition-all duration-300"
+                className="group relative flex items-center justify-between w-full sm:w-80 h-[60px] bg-[#007BA7] hover:bg-gradient-to-r hover:from-[#20CFFF] hover:to-[#009DFF] rounded-full p-2 shadow-[0_0_20px_rgba(32,207,255,0.2)] hover:shadow-[0_0_40px_rgba(32,207,255,0.6)] transition-all duration-300"
               >
                 {/* Gift Icon Box */}
-                <div className="flex items-center justify-center w-[56px] h-[56px] rounded-full bg-[#050B1A]/40">
-                  <Gift className="w-7 h-7 text-[#020817]" />
+                <div className="flex items-center justify-center w-[44px] h-[44px] rounded-full bg-[#050B1A]/40 transition-colors group-hover:bg-[#050B1A]/20">
+                  <Gift className="w-5 h-5 text-white group-hover:text-[#020817] transition-colors" />
                 </div>
                 
                 {/* Text Content */}
                 <div className="flex flex-col items-center justify-center flex-1 px-2">
-                  <span className="text-[#020817] font-black font-display text-[22px] uppercase tracking-widest leading-none mb-1">
+                  <span className="text-white group-hover:text-[#020817] font-black font-display text-[20px] uppercase tracking-widest leading-none mb-1 transition-colors">
                     FREE TRIAL
                   </span>
-                  <span className="text-[#020817]/80 font-bold font-display text-[9px] uppercase tracking-[0.2em] leading-none">
+                  <span className="text-white/80 group-hover:text-[#020817]/80 font-bold font-display text-[8px] uppercase tracking-[0.2em] leading-none transition-colors">
                     START YOUR JOURNEY
                   </span>
                 </div>
                 
                 {/* Arrow Icon */}
-                <div className="flex items-center justify-center w-10 h-10 mr-4">
-                  <ArrowRight className="w-7 h-7 text-[#020817] group-hover:translate-x-1.5 transition-transform" />
+                <div className="flex items-center justify-center w-8 h-8 mr-2">
+                  <ArrowRight className="w-6 h-6 text-white group-hover:text-[#020817] group-hover:translate-x-1.5 transition-all duration-300" />
                 </div>
               </button>
             </motion.div>
@@ -202,21 +207,31 @@ export default function Hero() {
       </motion.div>
 
       {/* Sticky Bottom Bar for Mobile Only */}
-      <div className="fixed bottom-0 left-0 right-0 z-[100] sm:hidden">
-        <div className="relative">
-          {/* Scroll down indicator floating above */}
-          <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg border border-black/10 cursor-pointer">
-            <ChevronDown className="w-5 h-5 text-[#020817]" />
-          </div>
-          {/* Main sticky banner */}
-          <button onClick={handleWhatsApp} className="w-full h-14 bg-[#20CFFF] flex items-center justify-center gap-3 active:bg-[#009DFF] transition-colors">
-            <span className="text-[#020817] font-display font-black uppercase text-[15px] tracking-widest mt-0.5">
-              BOOK FREE TRIAL SESSION
-            </span>
-            <ArrowRight className="w-4 h-4 text-[#020817]" />
-          </button>
-        </div>
-      </div>
+      <AnimatePresence>
+        {showSticky && (
+          <motion.div 
+            initial={{ y: 100 }}
+            animate={{ y: 0 }}
+            exit={{ y: 100 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="fixed bottom-0 left-0 right-0 z-[100] sm:hidden"
+          >
+            <div className="relative">
+              {/* Scroll down indicator floating above */}
+              <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg border border-black/10 cursor-pointer">
+                <ChevronDown className="w-5 h-5 text-[#020817]" />
+              </div>
+              {/* Main sticky banner */}
+              <button onClick={handleWhatsApp} className="w-full h-14 bg-[#050B1A] border-t border-[#20CFFF]/20 flex items-center justify-center gap-3 active:bg-[#0A192F] transition-colors">
+                <span className="text-white font-display font-black uppercase text-[15px] tracking-widest mt-0.5">
+                  BOOK FREE TRIAL SESSION
+                </span>
+                <ArrowRight className="w-4 h-4 text-[#20CFFF]" />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </section>
   );
