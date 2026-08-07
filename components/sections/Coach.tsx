@@ -6,7 +6,7 @@ import { ArrowRight, BadgeCheck } from "lucide-react";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
 
-const WHATSAPP_NUMBER = "6589160656";
+const WHATSAPP_NUMBER = "6594492453";
 const WHATSAPP_MESSAGE = "Hi Coach Noor! I'd like to book a free trial session at Absolute Football Academy.";
 
 const credentials = [

@@ -13,6 +13,20 @@ export const metadata: Metadata = {
     title: "Absolute Football Academy | Singapore's Premier Youth Football Pathway",
     description: "Build Confidence, Discipline & Football Skills",
     type: "website",
+    images: [
+      {
+        url: "/logo.png",
+        width: 800,
+        height: 800,
+        alt: "Absolute Football Academy Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Absolute Football Academy | Singapore's Premier Youth Football Pathway",
+    description: "Build Confidence, Discipline & Football Skills",
+    images: ["/logo.png"],
   },
 };
 

@@ -15,8 +15,8 @@ const social = [
 ];
 
 const contact = [
-  { Icon: MapPin, text: "Bishan Sports Hall, Singapore 579837" },
-  { Icon: Phone, text: "+65 8916 0656" },
+  { Icon: MapPin, text: "Westwood Secondary School, 11 Jurong West Street 25, S 648350" },
+  { Icon: Phone, text: "+65 9449 2453" },
   { Icon: Mail, text: "hello@absolutefa.sg" },
 ];
 

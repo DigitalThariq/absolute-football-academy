@@ -7,7 +7,7 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 
-const WHATSAPP_NUMBER = "6589160656";
+const WHATSAPP_NUMBER = "6594492453";
 const WHATSAPP_MESSAGE = "Hi! I'd like to book a free trial session at Absolute Football Academy.";
 
 export default function CTA() {

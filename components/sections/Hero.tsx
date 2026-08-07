@@ -1,40 +1,102 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ChevronDown, ArrowRight, MapPin, Gift } from "lucide-react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { ChevronDown, ArrowRight, Gift } from "lucide-react";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
+import { useState, useEffect } from "react";
 
-const WHATSAPP_NUMBER = "6589160656";
+const WHATSAPP_NUMBER = "6594492453";
 const WHATSAPP_MESSAGE = "Welcome to Absolute Football Academy. Ready to take your game to the Absolute Standard? Let us know your child's age and experience level to book a trial.";
 
+const slides = [
+  { 
+    src: "/gallery/Match%205.jpeg", 
+    alt: "Coach talking to children",
+    line1: "BUILD",
+    line2: "CONFIDENCE.",
+    subtext: "Develop fearless young athletes.",
+    imageClass: "object-cover object-left md:object-center"
+  },
+  { 
+    src: "/gallery/Training%201.JPG", 
+    alt: "Training drills",
+    line1: "DEVELOP",
+    line2: "DISCIPLINE.",
+    subtext: "Professional coaching. Every session.",
+    imageClass: "object-cover object-center"
+  },
+  { 
+    src: "/gallery/Macth%204.jpg", 
+    alt: "Match celebration",
+    line1: "CREATE",
+    line2: "CHAMPIONS.",
+    subtext: "Where passion meets excellence.",
+    imageClass: "object-cover object-center"
+  },
+];
+
 export default function Hero() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  // Parallax effect for the background
+  const { scrollY } = useScroll();
+  const yParallax = useTransform(scrollY, [0, 1000], [0, 350]);
+
+  useEffect(() => {
+    // 5 seconds per slide.
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   const handleWhatsApp = () => {
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-28 pb-32 bg-[#020817] selection:bg-[#20CFFF] selection:text-[#020817]">
-      {/* Background Image Layer */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <Image
-          src="/hero_player_10.png"
-          alt="Absolute Football Academy Player"
-          fill
-          priority
-          className="object-cover object-[75%_top] sm:object-center opacity-70"
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-28 pb-32 bg-[#040A16] selection:bg-[#20CFFF] selection:text-[#020817]">
+      {/* Animated Background Image Slider with Parallax */}
+      <motion.div style={{ y: yParallax }} className="absolute inset-0 z-0 pointer-events-none overflow-hidden scale-110">
+        <AnimatePresence initial={true}>
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, scale: 1 }}
+            animate={{ opacity: 1, scale: 1.08 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              opacity: { duration: 1.2, ease: "easeInOut" },
+              scale: { duration: 5, ease: "linear" }
+            }}
+            className="absolute inset-0 origin-center"
+          >
+            <Image
+              src={slides[currentSlide].src}
+              alt={slides[currentSlide].alt}
+              fill
+              priority={currentSlide === 0}
+              className={slides[currentSlide].imageClass}
+              quality={90}
+            />
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Specific Gradient Overlay for Readability */}
+        <div 
+          className="absolute inset-0 z-10"
+          style={{
+            background: "linear-gradient(90deg, rgba(4,10,22,.65) 0%, rgba(4,10,22,.55) 35%, rgba(4,10,22,.40) 60%, rgba(4,10,22,.60) 100%)"
+          }}
         />
-        {/* Dark Overlays for Text Legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020817] via-[#020817]/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020817] via-[#020817]/80 to-transparent sm:via-[#020817]/40" />
-        <div className="absolute top-0 left-0 w-full h-[40%] bg-gradient-to-b from-[#020817]/90 to-transparent" />
         
         {/* Cinematic Cyan Glow */}
-        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#20CFFF]/10 blur-[120px] rounded-full" />
-      </div>
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#20CFFF]/10 blur-[120px] rounded-full z-10 mix-blend-screen" />
+      </motion.div>
 
-      <Container className="relative z-10 pointer-events-auto h-full flex flex-col justify-center mt-8 sm:mt-0 max-w-7xl mx-auto">
+      <Container className="relative z-20 pointer-events-auto h-full flex flex-col justify-center mt-8 sm:mt-0 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
           {/* Left Side: Main Content */}
@@ -48,42 +110,44 @@ export default function Hero() {
               className="w-full sm:w-auto"
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#081225] bg-[#050B1A]/80 shadow-md mb-8">
-                <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-[#20CFFF]" />
                 <span className="text-[#20CFFF] font-display font-bold uppercase tracking-[0.1em] text-[8px] sm:text-xs">
-                  SINGAPORE&apos;S PREMIER YOUTH ACADEMY
+                  Team In Singapore youth League (SYL)
                 </span>
               </div>
             </motion.div>
 
-            {/* Stacked Headline */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="font-display font-black uppercase flex flex-col text-[12vw] sm:text-5xl lg:text-7xl leading-[0.95] tracking-tight mb-8 drop-shadow-lg"
-            >
-              <span className="text-white">BUILD</span>
-              <span className="text-[#20CFFF]">CONFIDENCE,</span>
-              <span className="text-white">ABSOLUTE</span>
-              <span className="flex items-center gap-2">
-                <span className="text-[#20CFFF]">DISCIPLINE</span>
-                <span className="text-white font-serif italic font-normal">&amp;</span>
-              </span>
-              <span className="text-white">FOOTBALL</span>
-              <span className="text-[#20CFFF]">SKILLS.</span>
-            </motion.div>
+            {/* Dynamic Animated Headline */}
+            <div className="h-[90px] sm:h-[130px] lg:h-[170px] xl:h-[200px] relative w-full mb-8">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentSlide}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="font-display font-black uppercase flex flex-col text-[13vw] sm:text-6xl lg:text-7xl xl:text-8xl leading-[0.95] tracking-tight drop-shadow-lg absolute inset-0"
+                >
+                  <span className="text-white">{slides[currentSlide].line1}</span>
+                  <span className="text-[#20CFFF]">{slides[currentSlide].line2}</span>
+                </motion.div>
+              </AnimatePresence>
+            </div>
 
-            {/* Subtext */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-white/80 font-body text-[15px] sm:text-xl leading-relaxed mb-10 max-w-sm flex flex-col gap-0.5 drop-shadow-md"
-            >
-              <span>Developing young athletes.</span>
-              <span>Building champions.</span>
-              <span className="text-[#20CFFF] font-semibold">For the future.</span>
-            </motion.div>
+            {/* Dynamic Animated Subtext */}
+            <div className="h-[28px] sm:h-[36px] relative w-full mb-10 max-w-sm">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentSlide}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                  className="text-white/90 font-body text-[16px] sm:text-[20px] font-medium leading-relaxed drop-shadow-md absolute inset-0"
+                >
+                  {slides[currentSlide].subtext}
+                </motion.div>
+              </AnimatePresence>
+            </div>
 
             {/* Primary CTA */}
             <motion.div
@@ -119,15 +183,24 @@ export default function Hero() {
             </motion.div>
 
           </div>
-
-          {/* Right Side: Hidden on mobile */}
-          <div className="hidden lg:flex justify-end items-center">
-            {/* Desktop graphics */}
-          </div>
         </div>
-
       </Container>
       
+      {/* Scroll Down Indicator (Desktop) */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 z-20 pointer-events-none"
+      >
+        <span className="text-[#20CFFF] text-[9px] font-display uppercase tracking-[0.3em]">Scroll</span>
+        <motion.div 
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="w-[1.5px] h-12 bg-gradient-to-b from-[#20CFFF] to-transparent"
+        />
+      </motion.div>
+
       {/* Sticky Bottom Bar for Mobile Only */}
       <div className="fixed bottom-0 left-0 right-0 z-[100] sm:hidden">
         <div className="relative">

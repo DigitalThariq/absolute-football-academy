@@ -10,29 +10,27 @@ const categories = ["All", "Coaches", "Training", "Matches", "Events"];
 
 // Standardized photos array
 const photos = [
-  { id: 1, src: "/gallery/Coach%20Noor%20(Head%20Coach).JPG", category: "Coaches", alt: "Coach Noor (Head Coach)" },
-  { id: 2, src: "/gallery/Coach%20Noor%20(Head%20Coach)%202.JPG", category: "Coaches", alt: "Coach Noor" },
-  { id: 3, src: "/gallery/Coach%20Haran.JPG", category: "Coaches", alt: "Coach Haran" },
-  { id: 4, src: "/gallery/Coach%20Simon%20B.JPG", category: "Coaches", alt: "Coach Simon B" },
-  { id: 5, src: "/gallery/Coach%20Vincent%20Hardie.JPG", category: "Coaches", alt: "Coach Vincent Hardie" },
-  { id: 6, src: "/gallery/Coach%20Mirza.JPG", category: "Coaches", alt: "Coach Mirza" },
-  { id: 7, src: "/gallery/Coaching.jpeg", category: "Coaches", alt: "Coaching Session" },
-  { id: 8, src: "/gallery/Training%201.JPG", category: "Training", alt: "Training Session 1" },
-  { id: 9, src: "/gallery/Training%202.JPG", category: "Training", alt: "Training Session 2" },
-  { id: 10, src: "/gallery/Events%201.JPG", category: "Events", alt: "Academy Event 1" },
-  { id: 11, src: "/gallery/Events%202.JPG", category: "Events", alt: "Academy Event 2" },
-  { id: 12, src: "/gallery/Event%203.JPG", category: "Events", alt: "Academy Event 3" },
-  { id: 13, src: "/gallery/Events%203.jpeg", category: "Events", alt: "Academy Event 4" },
-  { id: 14, src: "/gallery/Events%204.jpeg", category: "Events", alt: "Academy Event 5" },
-  { id: 15, src: "/gallery/Events%205.jpg", category: "Events", alt: "Academy Event 6" },
-  { id: 16, src: "/gallery/Trial%20Invitation.JPG", category: "Events", alt: "Trial Invitation" },
-  { id: 17, src: "/gallery/Match%201.jpeg", category: "Matches", alt: "Match 1" },
-  { id: 18, src: "/gallery/Match%202.jpeg", category: "Matches", alt: "Match 2" },
-  { id: 19, src: "/gallery/Match%203.jpeg", category: "Matches", alt: "Match 3" },
-  { id: 20, src: "/gallery/Macth%204.jpg", category: "Matches", alt: "Match 4" },
-  { id: 21, src: "/gallery/Match%205.jpg", category: "Matches", alt: "Match 5" },
-  { id: 22, src: "/gallery/SYL%20Prize.jpeg", category: "Events", alt: "SYL Prize" },
-  { id: 23, src: "/gallery/Match.mp4", category: "Matches", alt: "Match Video", type: "video" },
+  { id: 1, src: "/gallery/Coach%20Noor%20(Head%20Coach).JPG", category: "Coaches", alt: "Coach Noor (Head Coach)", quote: "Empowering the next generation on and off the pitch." },
+  { id: 3, src: "/gallery/Coach%20Haran.JPG", category: "Coaches", alt: "Coach Haran", quote: "Dedication and discipline lead to greatness." },
+  { id: 4, src: "/gallery/Coach%20Simon%20B.JPG", category: "Coaches", alt: "Coach Simon B", quote: "Play with passion, train with purpose." },
+  { id: 5, src: "/gallery/Coach%20Vincent%20Hardie.JPG", category: "Coaches", alt: "Coach Vincent Hardie", quote: "Every setback is a setup for a comeback." },
+  { id: 6, src: "/gallery/Coach%20Mirza.JPG", category: "Coaches", alt: "Coach Mirza", quote: "Success is earned, never given." },
+  { id: 8, src: "/gallery/Training%201.JPG", category: "Training", alt: "Agility Drills" },
+  { id: 9, src: "/gallery/Training%202.JPG", category: "Training", alt: "Ball Control Practice" },
+  { id: 10, src: "/gallery/Events%201.JPG", category: "Events", alt: "Academy Gathering" },
+  { id: 11, src: "/gallery/Events%202.JPG", category: "Events", alt: "Community Event" },
+  { id: 12, src: "/gallery/Event%203.JPG", category: "Events", alt: "Team Building Activity" },
+  { id: 13, src: "/gallery/Events%203.jpeg", category: "Events", alt: "Team Briefing" },
+  { id: 14, src: "/gallery/Events%204.jpeg", category: "Events", alt: "Award Ceremony" },
+  { id: 15, src: "/gallery/Events%205.jpg", category: "Events", alt: "End of Season Celebration" },
+  { id: 16, src: "/gallery/Trial%20Invitation.JPG", category: "Events", alt: "Open Trial Day" },
+  { id: 17, src: "/gallery/Match%201.jpeg", category: "Matches", alt: "Match Day Squad" },
+  { id: 18, src: "/gallery/Match%202.jpeg", category: "Matches", alt: "Pre-match Instructions" },
+  { id: 19, src: "/gallery/Match%203.jpeg", category: "Matches", alt: "On Match Day" },
+  { id: 20, src: "/gallery/Macth%204.jpg", category: "Matches", alt: "Tournament Champions" },
+  { id: 21, src: "/gallery/Match%205.jpeg", category: "Matches", alt: "Half-time Team Talk" },
+  { id: 22, src: "/gallery/SYL%20Prize.jpeg", category: "Events", alt: "Singapore Youth League Awards" },
+  { id: 23, src: "/gallery/Match.mp4", category: "Matches", alt: "Championship Final Video", type: "video" },
 ];
 
 export default function GalleryPage() {
@@ -146,13 +144,18 @@ export default function GalleryPage() {
                 )}
                 
                 {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <span className="text-[#20CFFF] font-display font-bold uppercase tracking-widest text-xs mb-1">
                     {photo.category}
                   </span>
-                  <span className="text-white font-medium text-sm">
+                  <span className="text-white font-bold text-sm mb-1">
                     {photo.alt} {photo.type === 'video' && '(Video)'}
                   </span>
+                  {(photo as any).quote && (
+                    <span className="text-white/80 text-xs italic border-l-2 border-[#20CFFF] pl-2 mt-1">
+                      "{(photo as any).quote}"
+                    </span>
+                  )}
                 </div>
               </motion.div>
             ))}

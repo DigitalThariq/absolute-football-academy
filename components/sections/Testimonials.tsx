@@ -68,7 +68,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-16 max-w-lg"
+          className="mb-12 max-w-lg"
         >
           <span className="inline-block font-display font-bold text-[10px] uppercase tracking-[0.25em] text-accent mb-4">
             Social Proof
@@ -81,6 +81,22 @@ export default function Testimonials() {
             Don&apos;t take our word for it — hear from the parents and players
             who&apos;ve experienced the Absolute Football Academy difference.
           </p>
+        </motion.div>
+
+        {/* Video Testimonial */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="mb-16 relative rounded-2xl overflow-hidden border border-border bg-surface-2 shadow-2xl group w-full max-w-4xl mx-auto aspect-video"
+        >
+          <video
+            src="/Video%20review%20from%20parents.mp4"
+            className="w-full h-full object-cover"
+            controls
+            playsInline
+            preload="metadata"
+          />
         </motion.div>
 
         {/* Testimonial grid */}
