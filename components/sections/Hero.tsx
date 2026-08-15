@@ -217,10 +217,6 @@ export default function Hero() {
             className="fixed bottom-0 left-0 right-0 z-[100] sm:hidden"
           >
             <div className="relative">
-              {/* Scroll down indicator floating above */}
-              <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg border border-black/10 cursor-pointer">
-                <ChevronDown className="w-5 h-5 text-[#020817]" />
-              </div>
               {/* Main sticky banner */}
               <button onClick={handleWhatsApp} className="w-full h-14 bg-[#050B1A] border-t border-[#20CFFF]/20 flex items-center justify-center gap-3 active:bg-[#0A192F] transition-colors">
                 <span className="text-white font-display font-black uppercase text-[15px] tracking-widest mt-0.5">

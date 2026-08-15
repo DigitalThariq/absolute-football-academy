@@ -9,9 +9,17 @@ import Button from "@/components/ui/Button";
 
 
 
+const WHATSAPP_NUMBER = "6594492453";
+const WHATSAPP_MESSAGE = "Welcome to Absolute Football Academy. Ready to take your game to the Absolute Standard? Let us know your child's age and experience level to book a trial.";
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleWhatsApp = () => {
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -73,6 +81,7 @@ export default function Navbar() {
                 {/* Mobile CTA (and Desktop CTA) */}
                 <div>
                   <Button
+                    onClick={handleWhatsApp}
                     variant="primary"
                     className="bg-[#050B1A] border border-[#20CFFF] hover:bg-[#20CFFF] text-white font-display font-black uppercase tracking-wider text-[11px] sm:text-[13px] px-4 py-2 sm:px-8 sm:py-3 rounded-full shadow-[0_0_15px_rgba(32,207,255,0.15)] hover:shadow-[0_0_25px_rgba(32,207,255,0.4)] transition-all duration-300 h-auto min-h-0"
                   >
