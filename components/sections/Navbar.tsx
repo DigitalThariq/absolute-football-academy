@@ -10,7 +10,7 @@ import Button from "@/components/ui/Button";
 
 
 const WHATSAPP_NUMBER = "6594492453";
-const WHATSAPP_MESSAGE = "Welcome to Absolute Football Academy. Ready to take your game to the Absolute Standard? Let us know your child's age and experience level to book a trial.";
+const WHATSAPP_MESSAGE = "Hi Absolute Football Academy, I’m interested in booking a free trial for my child. Could you please share the available sessions and details? Thank you!";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

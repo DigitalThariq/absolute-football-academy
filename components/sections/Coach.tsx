@@ -7,7 +7,7 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 
 const WHATSAPP_NUMBER = "6594492453";
-const WHATSAPP_MESSAGE = "Hi Coach Noor! I'd like to book a free trial session at Absolute Football Academy.";
+const WHATSAPP_MESSAGE = "Hi Absolute Football Academy, I’m interested in booking a free trial for my child. Could you please share the available sessions and details? Thank you!";
 
 const credentials = [
   "Singapore Football Association Licensed Coach",

@@ -7,7 +7,7 @@ import Container from "@/components/ui/Container";
 import { useState, useEffect } from "react";
 
 const WHATSAPP_NUMBER = "6594492453";
-const WHATSAPP_MESSAGE = "Welcome to Absolute Football Academy. Ready to take your game to the Absolute Standard? Let us know your child's age and experience level to book a trial.";
+const WHATSAPP_MESSAGE = "Hi Absolute Football Academy, I’m interested in booking a free trial for my child. Could you please share the available sessions and details? Thank you!";
 
 const slides = [
   { 

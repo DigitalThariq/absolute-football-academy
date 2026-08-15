@@ -8,7 +8,7 @@ import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 
 const WHATSAPP_NUMBER = "6594492453";
-const WHATSAPP_MESSAGE = "Hi! I'd like to book a free trial session at Absolute Football Academy.";
+const WHATSAPP_MESSAGE = "Hi Absolute Football Academy, I’m interested in booking a free trial for my child. Could you please share the available sessions and details? Thank you!";
 
 export default function CTA() {
   const ref = useRef<HTMLDivElement>(null);

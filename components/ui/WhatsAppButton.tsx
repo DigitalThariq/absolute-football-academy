@@ -5,7 +5,7 @@ import { useState } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 
 const WHATSAPP_NUMBER = "6594492453";
-const WHATSAPP_MESSAGE = "Hi, I'm interested in joining Absolute Football Academy - can you tell me more?";
+const WHATSAPP_MESSAGE = "Hi Absolute Football Academy, I’m interested in booking a free trial for my child. Could you please share the available sessions and details? Thank you!";
 
 export default function WhatsAppButton() {
   const [isOpen, setIsOpen] = useState(false);
