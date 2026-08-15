@@ -5,6 +5,7 @@ import Coach from "@/components/sections/Coach";
 import VideoShowcase from "@/components/sections/VideoShowcase";
 
 import InstagramFeed from "@/components/sections/InstagramFeed";
+import CoachingCTA from "@/components/sections/CoachingCTA";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Coach />
       <VideoShowcase />
       <InstagramFeed />
+      <CoachingCTA />
     </main>
   );
 }
