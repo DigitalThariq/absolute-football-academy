@@ -59,7 +59,7 @@ export default function Footer() {
                 ⚽️ Defining the future of SG Football. | 🏆 Elite U-14 Development. | 🇸🇬 Professional Standards. Global Ambitions.
               </p>
               <p className="text-foreground-3 text-sm leading-relaxed mb-8 font-body">
-                Absolute Football Academy is Singapore’s premier youth program, blending world-class technical training with comprehensive character education.
+                Started from 2014, Absolute Football Academy is Singapore’s premier youth program, blending world-class technical training with comprehensive character education.
               </p>
 
               {/* Contact info */}
@@ -96,7 +96,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-foreground-3 text-xs font-display uppercase tracking-widest">
-            © 2024 Absolute Football Academy. All rights reserved.
+            © 2014 Absolute Football Academy. All rights reserved.
           </p>
           <div className="flex items-center gap-2 text-foreground-3">
             <span className="text-xs font-display uppercase tracking-widest">Made in Singapore</span>

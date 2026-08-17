@@ -79,10 +79,13 @@ export default function Features() {
           <span className="inline-block font-display font-bold text-[10px] uppercase tracking-[0.25em] text-accent mb-4">
             Mission &amp; Philosophy
           </span>
-          <h2 className="font-display text-display-md text-foreground leading-tight">
+          <h2 className="font-display text-display-md text-foreground leading-tight mb-4">
             The Absolute{" "}
             <span className="text-foreground-3">Standard.</span>
           </h2>
+          <p className="text-foreground-3 text-sm sm:text-base leading-relaxed font-body">
+            Started from 2014, our mission is to build the next generation of footballing excellence in Singapore.
+          </p>
         </motion.div>
 
         {/* 3D Icons visual decoration */}
