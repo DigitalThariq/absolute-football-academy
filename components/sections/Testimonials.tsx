@@ -68,7 +68,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-12 max-w-lg"
+          className="mb-12 max-w-lg md:mx-auto md:text-center"
         >
           <span className="inline-block font-display font-bold text-[10px] uppercase tracking-[0.25em] text-accent mb-4">
             Social Proof
