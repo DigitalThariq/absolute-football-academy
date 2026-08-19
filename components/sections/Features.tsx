@@ -1,11 +1,17 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import { Shield, Trophy, Zap } from "lucide-react";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Card from "@/components/ui/Card";
+
+const slides = [
+  { src: "/gallery/about-slider-1.jpg", alt: "About Academy 1" },
+  { src: "/gallery/about-slider-2.jpg", alt: "About Academy 2" },
+  { src: "/gallery/about-slider-3.jpg", alt: "About Academy 3" },
+];
 
 const features = [
   {
@@ -61,14 +67,50 @@ const itemVariants = {
 export default function Features() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section id="philosophy" className="py-section bg-surface relative overflow-hidden">
-      {/* Background accent */}
-      <div className="absolute inset-0 bg-grid-fine opacity-40 pointer-events-none" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      {/* Animated Background Image Slider */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden scale-110">
+        <AnimatePresence initial={true}>
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, scale: 1 }}
+            animate={{ opacity: 1, scale: 1.08 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              opacity: { duration: 1.2, ease: "easeInOut" },
+              scale: { duration: 5, ease: "linear" }
+            }}
+            className="absolute inset-0 origin-center"
+          >
+            <Image
+              src={slides[currentSlide].src}
+              alt={slides[currentSlide].alt}
+              fill
+              className="object-cover object-center opacity-30"
+              quality={90}
+            />
+          </motion.div>
+        </AnimatePresence>
+        {/* Overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-[#040A16]/80" />
+      </div>
 
-      <Container ref={ref}>
+      {/* Background accent */}
+      <div className="absolute inset-0 bg-grid-fine opacity-40 pointer-events-none z-0" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-border to-transparent z-10" />
+
+      <Container ref={ref} className="relative z-10">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}

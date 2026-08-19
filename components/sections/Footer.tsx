@@ -17,7 +17,6 @@ const social = [
 const contact = [
   { Icon: MapPin, text: "Westwood Secondary School, 11 Jurong West Street 25, S 648350" },
   { Icon: Phone, text: "+65 9449 2453" },
-  { Icon: Mail, text: "hello@absolutefa.sg" },
 ];
 
 export default function Footer() {
@@ -43,7 +42,7 @@ export default function Footer() {
               <div className="flex items-center gap-3 mb-6 group">
                 <div className="relative w-14 h-14 flex items-center justify-center rounded-full bg-black/40 overflow-hidden border border-[#38bdf8]/30 shadow-[0_0_15px_rgba(56,189,248,0.3)] group-hover:shadow-[0_0_25px_rgba(56,189,248,0.8)] group-hover:scale-105 transition-all duration-300">
                   <div className="absolute inset-0 bg-[#38bdf8]/10 group-hover:bg-[#38bdf8]/20 transition-colors rounded-full" />
-                  <Image src="/logo.png" alt="Absolute Football Academy Logo" fill className="object-contain p-1 z-10" />
+                  <Image src="/new-logo.png" alt="Absolute Football Academy Logo" fill className="object-contain p-1 z-10" />
                 </div>
                 <div className="flex flex-col justify-center gap-0.5 font-display uppercase tracking-wider leading-none text-left">
                   <span className="text-[#38bdf8] font-black text-xl drop-shadow-[0_0_8px_rgba(56,189,248,0.6)]">

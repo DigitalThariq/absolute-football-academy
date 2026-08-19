@@ -51,7 +51,7 @@ export default function Navbar() {
               >
                 <div className="relative w-11 h-11 sm:w-14 sm:h-14 flex items-center justify-center rounded-full bg-[#050B1A] overflow-hidden border border-[#20CFFF]/30 shadow-[0_0_15px_rgba(32,207,255,0.3)] group-hover:shadow-[0_0_25px_rgba(32,207,255,0.8)] group-hover:scale-105 transition-all duration-300">
                   <div className="absolute inset-0 bg-[#20CFFF]/10 group-hover:bg-[#20CFFF]/20 transition-colors rounded-full" />
-                  <Image src="/logo.png" alt="Absolute Football Academy Logo" fill className="object-contain p-1 z-10" />
+                  <Image src="/new-logo.png" alt="Absolute Football Academy Logo" fill className="object-contain p-1 z-10" />
 
                 </div>
               </motion.a>

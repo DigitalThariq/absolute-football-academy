@@ -1,37 +1,56 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
 
+const slides = [
+  { src: "/gallery/about-slider-1.jpg", alt: "About Academy 1" },
+  { src: "/gallery/about-slider-2.jpg", alt: "About Academy 2" },
+  { src: "/gallery/about-slider-3.jpg", alt: "About Academy 3" },
+];
+
 export default function AboutHero() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   // Parallax effect for the background
   const { scrollY } = useScroll();
   const yParallax = useTransform(scrollY, [0, 1000], [0, 350]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000); // changes every 5 seconds
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section className="relative h-[60vh] sm:h-[70vh] flex flex-col justify-center overflow-hidden bg-[#040A16] selection:bg-[#20CFFF] selection:text-[#020817]">
       {/* Background Image with Parallax */}
       <motion.div style={{ y: yParallax }} className="absolute inset-0 z-0 pointer-events-none overflow-hidden scale-110">
-        <motion.div
-          initial={{ opacity: 0, scale: 1 }}
-          animate={{ opacity: 1, scale: 1.05 }}
-          transition={{
-            opacity: { duration: 1.2, ease: "easeInOut" },
-            scale: { duration: 5, ease: "easeOut" }
-          }}
-          className="absolute inset-0 origin-center"
-        >
-          {/* We use a placeholder gallery image here. The user can swap to their specific team photo if uploaded. */}
-          <Image
-            src="/gallery/about.jpeg"
-            alt="Absolute Football Academy Team"
-            fill
-            priority
-            className="object-cover object-center"
-            quality={90}
-          />
-        </motion.div>
+        <AnimatePresence initial={true}>
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, scale: 1 }}
+            animate={{ opacity: 1, scale: 1.05 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              opacity: { duration: 1.2, ease: "easeInOut" },
+              scale: { duration: 5, ease: "easeOut" }
+            }}
+            className="absolute inset-0 origin-center"
+          >
+            <Image
+              src={slides[currentSlide].src}
+              alt={slides[currentSlide].alt}
+              fill
+              priority={currentSlide === 0}
+              className="object-cover object-center"
+              quality={90}
+            />
+          </motion.div>
+        </AnimatePresence>
 
         {/* Specific Gradient Overlay for Readability */}
         <div 
