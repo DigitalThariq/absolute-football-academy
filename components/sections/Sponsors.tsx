@@ -16,6 +16,11 @@ export default function Sponsors() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
+  const handleWhatsApp = () => {
+    const url = `https://wa.me/6594492453?text=${encodeURIComponent("Hi Absolute Football Academy, I'm interested in becoming a sponsor. Could we discuss partnership opportunities?")}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <section
       id="sponsors"
@@ -68,6 +73,7 @@ export default function Sponsors() {
         >
           <Button
             variant="primary"
+            onClick={handleWhatsApp}
             className="bg-[#20CFFF] hover:bg-[#20CFFF]/90 text-[#020817] font-display font-black uppercase tracking-wider text-sm sm:text-base px-6 py-3 rounded-full shadow-[0_0_20px_rgba(32,207,255,0.4)]"
           >
             Become a Sponsor

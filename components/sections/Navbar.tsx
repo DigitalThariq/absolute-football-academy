@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Zap } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 
@@ -71,11 +72,11 @@ export default function Navbar() {
             <div className="flex items-center gap-3 sm:gap-6">
                 {/* Desktop Links */}
                 <div className="hidden lg:flex items-center gap-6">
-                  <a href="/about" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">About</a>
-                  <a href="/reviews" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">Reviews</a>
-                  <a href="/gallery" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">Gallery</a>
-                  <a href="/faq" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">FAQ</a>
-                  <a href="/sponsors" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">Sponsors</a>
+                  <Link href="/about" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">About</Link>
+                  <Link href="/reviews" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">Reviews</Link>
+                  <Link href="/gallery" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">Gallery</Link>
+                  <Link href="/faq" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">FAQ</Link>
+                  <Link href="/sponsors" className="text-white/80 hover:text-[#20CFFF] text-xs font-display font-bold uppercase tracking-widest transition-colors">Sponsors</Link>
                 </div>
 
                 {/* Mobile CTA (and Desktop CTA) */}
@@ -111,21 +112,21 @@ export default function Navbar() {
               className="lg:hidden overflow-hidden bg-[#020617]/95 backdrop-blur-xl border-t border-[#38bdf8]/10"
             >
               <div className="flex flex-col px-6 py-6 gap-6 items-center">
-                <a href="/about" className="text-white hover:text-[#38bdf8] text-sm font-display font-bold uppercase tracking-widest transition-colors">
+                <Link href="/about" className="text-white hover:text-[#38bdf8] text-sm font-display font-bold uppercase tracking-widest transition-colors">
                   About
-                </a>
-                <a href="/reviews" className="text-white hover:text-[#38bdf8] text-sm font-display font-bold uppercase tracking-widest transition-colors">
+                </Link>
+                <Link href="/reviews" className="text-white hover:text-[#38bdf8] text-sm font-display font-bold uppercase tracking-widest transition-colors">
                   Reviews
-                </a>
-                <a href="/gallery" className="text-white hover:text-[#38bdf8] text-sm font-display font-bold uppercase tracking-widest transition-colors">
+                </Link>
+                <Link href="/gallery" className="text-white hover:text-[#38bdf8] text-sm font-display font-bold uppercase tracking-widest transition-colors">
                   Gallery
-                </a>
-                <a href="/faq" className="text-white hover:text-[#38bdf8] text-sm font-display font-bold uppercase tracking-widest transition-colors">
+                </Link>
+                <Link href="/faq" className="text-white hover:text-[#38bdf8] text-sm font-display font-bold uppercase tracking-widest transition-colors">
                   FAQ
-                </a>
-                <a href="/sponsors" className="text-white hover:text-[#38bdf8] text-sm font-display font-bold uppercase tracking-widest transition-colors">
+                </Link>
+                <Link href="/sponsors" className="text-white hover:text-[#38bdf8] text-sm font-display font-bold uppercase tracking-widest transition-colors">
                   Sponsors
-                </a>
+                </Link>
               </div>
             </motion.div>
           )}
